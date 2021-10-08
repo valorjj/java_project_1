@@ -1,14 +1,12 @@
 package project_package;
 
-public class dessert extends customerOrder {
-	
+public class dessert extends dessert_menu {
+
 	String dessertWhichOne;
 	int dessertHowMany;
-	
-	
-	
+
 	public dessert() {
-		
+
 	}
 
 	public dessert(String dessertWhichOne, int dessertHowMany) {
@@ -32,9 +30,5 @@ public class dessert extends customerOrder {
 	public void setDessertHowMany(int dessertHowMany) {
 		this.dessertHowMany = dessertHowMany;
 	}
-	
-	
-	
-	
 
 }

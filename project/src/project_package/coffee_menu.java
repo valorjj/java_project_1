@@ -10,19 +10,9 @@ public class coffee_menu extends admin_page {
 	 *
 	 */
 
-	String coffee_name; // 해당 메뉴 이름
-	int coffee_price; // 해당 메뉴 가격
-	int coffee_stock; // 남은 재고
 	static coffee[] coffeeArray = new coffee[10];
 
 	public coffee_menu() {
-	}
-
-	public coffee_menu(String coffee_name, int coffee_price, int coffee_stock) {
-		super();
-		this.coffee_name = coffee_name;
-		this.coffee_price = coffee_price;
-		this.coffee_stock = coffee_stock;
 	}
 
 	// 1. 커피를 주문하는 창을 띄우는 메소드입니다.
@@ -96,28 +86,5 @@ public class coffee_menu extends admin_page {
 		}
 	}
 
-	public String getCoffee_name() {
-		return coffee_name;
-	}
-
-	public void setCoffee_name(String coffee_name) {
-		this.coffee_name = coffee_name;
-	}
-
-	public int getCoffee_price() {
-		return coffee_price;
-	}
-
-	public void setCoffee_price(int coffee_price) {
-		this.coffee_price = coffee_price;
-	}
-
-	public int getCoffee_stock() {
-		return coffee_stock;
-	}
-
-	public void setCoffee_stock(int coffee_stock) {
-		this.coffee_stock = coffee_stock;
-	}
 
 }
