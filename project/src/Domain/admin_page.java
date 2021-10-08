@@ -13,7 +13,7 @@ public class admin_page {
 		boolean run = true;
 		
 		while (run) {
-			System.out.print("1번. 메뉴 추가 | 2번. 메뉴 수정 | 3번. 메뉴 삭제 | 4번. 프로그램 종료");
+			System.out.print("1번. 메뉴 추가 | 2번. 메뉴 수정 | 3번. 메뉴 삭제 | 4번. 프로그램 종료 >>> ");
 			int adminSelect = main.scanner.nextInt();
 			// 1. 관리자가 메뉴를 추가합니다. 
 			if (adminSelect == 1) {
