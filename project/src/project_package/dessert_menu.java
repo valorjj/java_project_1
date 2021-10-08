@@ -1,16 +1,17 @@
 package project_package;
 
 public class dessert_menu extends admin_page {
-	// 디저트 메뉴 클래스
+	// �뵒���듃 硫붾돱 �겢�옒�뒪
 	
 	String dessert_name;
 	String dessert_price;
 	String dessert_stock;
+	String aaa;
 	
-	// 빈 생성자 
+	// 鍮� �깮�꽦�옄 
 	public dessert_menu() {
 	}
-	// dessert 의 생성자입니다. 이름, 가격, 재고를 입력받습니다. 
+	// dessert �쓽 �깮�꽦�옄�엯�땲�떎. �씠由�, 媛�寃�, �옱怨좊�� �엯�젰諛쏆뒿�땲�떎. 
 	public dessert_menu(String dessert_name, String dessert_price, String dessert_stock) {
 		super();
 		this.dessert_name = dessert_name;
@@ -19,9 +20,9 @@ public class dessert_menu extends admin_page {
 	}
 	
 	public static void dessert_mainPage() {
-		System.out.println("디저트 출력 화면입니다. ");
-		adminDessertList(); // 디저트 리스트 출력 
-		System.out.print("어떤 디저트를 주문하시겠습니까 ? >>> ");
+		System.out.println("�뵒���듃 異쒕젰 �솕硫댁엯�땲�떎. ");
+		adminDessertList(); // �뵒���듃 由ъ뒪�듃 異쒕젰 
+		System.out.print("�뼱�뼡 �뵒���듃瑜� 二쇰Ц�븯�떆寃좎뒿�땲源� ? >>> ");
 		int dessertInput = project_Main.scanner.nextInt();
 		
 		
@@ -29,9 +30,10 @@ public class dessert_menu extends admin_page {
 	
 	
 	
+	
 
 	
-	// 디저트 메뉴 getter / setter 
+	// �뵒���듃 硫붾돱 getter / setter 
 
 	public String getDessert_name() {
 		return dessert_name;
