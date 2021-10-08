@@ -5,10 +5,15 @@ import java.util.Scanner;
 public class main {
 	
 	static Scanner scanner = new Scanner(System.in);
-	static String[][] coffeeList = new String[30][3];
+	static coffee_menu[] coffeeList = new coffee_menu[30];
+	static dessert_menu[] dessertList = new dessert_menu[30];
 	
 	public static void main(String[] args) {
-		System.out.println("잘만됨 ");
+ 
+		// admin_page 객체 호출 
+		admin_page adminPage = new admin_page();
+		
+		adminPage.adminMenu();
 		
 
 	}
