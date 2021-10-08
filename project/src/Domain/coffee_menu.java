@@ -1,6 +1,6 @@
 package Domain;
 
-public class coffee_menu {
+public class coffee_menu extends admin_page {
 	// 커피 메뉴 클래스 
 	// 아메라카노 | 라떼 | 콜드브루 
 	
