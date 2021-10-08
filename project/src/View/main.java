@@ -2,7 +2,7 @@ package View;
 
 public class main {
 
-	// 1. ¸ŞÀÎ ¸Ş¼Òµå 
+	// 1. ë©”ì¸ ë©”ì†Œë“œ 
 	public static void main(String[] args) {
 
 		
