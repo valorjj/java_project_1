@@ -7,6 +7,10 @@ public class dessert_menu extends admin_page {
 	String dessert_price;
 	String dessert_stock;
 	
+	// 빈 생성자 
+	public dessert_menu() {
+	}
+	// dessert 의 생성자입니다. 이름, 가격, 재고를 입력받습니다. 
 	public dessert_menu(String dessert_name, String dessert_price, String dessert_stock) {
 		super();
 		this.dessert_name = dessert_name;
@@ -17,11 +21,13 @@ public class dessert_menu extends admin_page {
 	public static void dessert_mainPage() {
 		System.out.println("디저트 출력 화면입니다. ");
 		adminDessertList(); // 디저트 리스트 출력 
+		System.out.print("어떤 디저트를 주문하시겠습니까 ? >>> ");
+		int dessertInput = project_Main.scanner.nextInt();
+		
 		
 	}
 	
-	public dessert_menu() {
-	}
+	
 	
 
 	
