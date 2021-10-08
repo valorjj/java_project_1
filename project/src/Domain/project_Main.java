@@ -2,7 +2,7 @@ package Domain;
 
 import java.util.Scanner;
 
-public class main {
+public class project_Main {
 	
 	public static Scanner scanner = new Scanner(System.in);
 	public static coffee_menu[] coffeeList = new coffee_menu[30];
@@ -17,6 +17,8 @@ public class main {
 		admin_page adminPage = new admin_page();
 		
 		adminPage.adminMenu();
+		
+	
 
 	
 		
