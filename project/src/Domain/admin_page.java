@@ -1,7 +1,5 @@
 package Domain;
 
-import View.*;
-
 public class admin_page {
 
 	String admin_Id = "admin";
