@@ -2,6 +2,11 @@ package project_package;
 
 public class admin_page {
 
+	/*
+	 * 관리자 페이지입니다. 편의상 관리자 아이디, 패스워드는 미리 입력되어있습니다.
+	 * 
+	 */
+
 	String admin_Id = "admin";
 	String admin_password = "1234";
 
@@ -9,29 +14,38 @@ public class admin_page {
 	public admin_page() {
 	}
 
-	// 관리자 계정으로 로그인하는 메소드입니다.
-	// 관리자 계정, 관리자 비밀번호는 미리 정해져있습니다.
+	// 0. 관리자 계정으로 로그인하는 메소드입니다.
+	// 1. 관리자 계정은 편의상 "admin", "1234" 로 미리 입력되어있습니다.
 	public static boolean admin_logIn() {
-		admin_page admin = new admin_page();
+		admin_page admin = new admin_page(); // 1. admin 객체 생성
 
 		System.out.print("관리자 계정 아이디 : ");
 		String id = project_Main.scanner.next();
 		System.out.print("관리자 계정 비밀번호 : ");
 		String password = project_Main.scanner.next();
-
+		// 2. admin 계정 정보와 입력하는지 검사
 		if (admin.getAdmin_Id().equals(id) && admin.getAdmin_password().equals(password)) {
-			// 관리자 아이디와 비밀번호가 일치할 하면 로그인 성공
+			// 3. 관리자 아이디와 비밀번호가 일치할 하면 로그인 성공
 			System.out.println("관리자 계정으로 로그인되셨습니다. ");
+			// 4. 로그인에 성공하면 true 값을 리턴한다.
 			return true;
 		} else {
+			// 5. 아이디 혹은 비밀번호가 일치하지 않을 시 오류 메세지 출력
 			System.out.println("잘못입력 하셨습니다. ");
 		}
-
+		// 6. 로그인에 실패하면 false 값을 리턴한다.
 		return false;
 	}
 
-	// 1. 관리자 메인 화면 출력하는 메소드입니다.
+	// 2. 관리자 메인 화면 출력하는 메소드입니다.
 	public static void adminMenu() {
+		
+		/*
+		 * 	이미 선언된 메소드들을 호출해서 사용합니다. 
+		 * 	프로그램이 최종적으로 동작할 main method 에 선언한 커피, 디저트 리스트를 호출해서 사용합니다. 
+		 * 	
+		 * 
+		 */
 
 		coffee_menu coffee = new coffee_menu();
 		dessert_menu dessert = new dessert_menu();
@@ -74,11 +88,12 @@ public class admin_page {
 					int adminSelect4 = project_Main.scanner.nextInt();
 					if (adminSelect4 == 1) {
 						System.out.println("커피 메뉴 삭제하는 화면입니다. ");
-						adminCoffeeModify();
+						adminCoffeeModify(); // 1. 커피 메뉴를 수정하는 메소드 호출
 					} else if (adminSelect4 == 2) {
 						System.out.println("디저트 메뉴 삭제하는 화면입니다. ");
-						adminDessertModify();
+						adminDessertModify(); // 2. 디저트 메뉴를 수정하는 메소드 호출
 					} else {
+						// 3. 1~2 값이 아닌 다른 입력을 받았을 때 에러 메세지 출력
 						System.out.println("잘못된 입력입니다. ");
 					}
 				}
@@ -87,31 +102,38 @@ public class admin_page {
 					System.out.print("1번. 커피 메뉴 삭제 | 2번. 디저트 메뉴 삭제 >>> ");
 					int adminSelect3 = project_Main.scanner.nextInt();
 					if (adminSelect3 == 1) {
-						System.out.println("커피 메뉴 수정하는 화면입니다. ");
-						adminDeleteCoffeeMenu();
+						System.out.println("커피 메뉴 삭제하는 화면입니다. ");
+						adminDeleteCoffeeMenu(); // 1. 커피 메뉴를 삭제하는 메소드 호출
 					} else if (adminSelect3 == 2) {
-						System.out.println("디저트 메뉴 수정하는 화면입니다. ");
-						adminDeleteDessertMenu();
+						System.out.println("디저트 메뉴 삭제하는 화면입니다. ");
+						adminDeleteDessertMenu(); // 2. 디저트 메뉴를 삭제하는 메소드 호출
 					} else {
-						System.out.println("잘못도된 입력입니다. ");
+						// 3. 1~2 값이 아닌 다른 입력을 받았을 때 에러 메세지 출력
+						System.out.println("잘못된 입력입니다. ");
 					}
 
 				}
 				// 4. 메뉴를 출력합니다.
 				else if (adminSelect == 4) {
+
+					/*
+					 * 관리자가 입력한 메뉴를 출력해서 확인할 수 있습니다. db 와 연동해야만 유의미한 값들 입니다.
+					 */
+
 					System.out.println("메뉴를 출력합니다. ");
 					System.out.println("----커피------");
-					adminCoffeeList();
+					adminCoffeeList(); // 1. 커피 메뉴를 출력하는 메소드 호출
 					System.out.println("----디저트----");
-					adminDessertList();
+					adminDessertList(); // 2. 디저트 메뉴를 출력하는 메소드 호출
+					System.out.println("");
 				}
 				// 5. 프로그램을 종료합니다.
 				else if (adminSelect == 5) {
 					System.out.println("관리자 메뉴를 종료합니다. ");
-					run = false;
+					run = false; // 1. run 값을 false 로 바꿈으로써 반복문을 종료시킵니다.
 
 				}
-				// 5. 1~4번 값이 아닌경우 에러 메시지를 출력합니다.
+				// 6. 1~4번 값이 아닌경우 에러 메시지를 출력합니다.
 				else {
 					System.out.println("유효하지 않은 입력입니다. ");
 				}
@@ -120,32 +142,33 @@ public class admin_page {
 
 	}
 
-	// 2. 중복메뉴가 있는지 체크하는 메소드입니다.
+	// 3. 커피 메뉴에 중복메뉴가 있는지 체크하는 메소드입니다.
 	public static boolean adminCoffeeCheck(String name) {
 		for (int i = 0; i < project_Main.coffeeList.length; i++) {
 
-			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].getCoffeeType().equals(name)) {
-				// 둘중 하나라도 겹치는 경우에는
+			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].getCoffee_name().equals(name)) {
+				// 1. 커피 리스트에 값이 존재하고 입력된 값과 동일한 메뉴가 존재하는 경우 => 중복이 생기는 경우 
 				System.out.println("중복입니다. ");
-				return false; // 중복인 경우에는 false 를 리턴합니다.
+				// 2. 중복이 발생하는 경우 false 를 리턴합니다. 
+				return false; 
 			}
 		}
-		return true; // 중복이 아닌 경우에는 true 를 리턴합니다.
+		return true; // 3. 중복이 아닌 경우에는 true 를 리턴합니다.
 	}
 
-	// 2. 중복메뉴가 있는지 체크하는 메소드입니다.
+	// 4. 디저트 메뉴에 중복메뉴가 있는지 체크하는 메소드입니다.
 	public static boolean adminDessertCheck(String name) {
 		for (int i = 0; i < project_Main.dessertList.length; i++) {
 			if (project_Main.dessertList[i] != null && project_Main.dessertList[i].getDessert_name().equals(name)) {
-				// 둘중 하나라도 겹치는 경우에는
+				// 디저트 리스트에 값이 존재하고 입력된 값과 동일한 메뉴가 존재하는 경우 => 중복이 생기는 경우 
 				System.out.println("중복입니다. ");
-				return false; // 중복인 경우에는 false 를 리턴합니다.
+				return false; // 2. 중복이 발생하는 경우 false 를 리턴합니다.
 			}
 		}
-		return true; // 중복이 아닌 경우에는 true 를 리턴합니다.
+		return true; // 3. 중복이 아닌 경우에는 true 를 리턴합니다.
 	}
 
-	// 3. 커피 메뉴를 추가하는 메소드입니다.
+	// 5. 커피 메뉴를 추가하는 메소드입니다.
 	public static void adminAddCoffeeMenu() {
 		coffee_menu coffee;
 		System.out.println("새로운 커피를 추가하는 화면입니다. ");
@@ -153,9 +176,9 @@ public class admin_page {
 		String c_name = project_Main.scanner.next();
 		if (adminCoffeeCheck(c_name)) { // 커피 이름이 기존의 리스트와 중복되지 않습니다.
 			System.out.print("커피 가격 : >>> ");
-			String c_price = project_Main.scanner.next();
+			int c_price = project_Main.scanner.nextInt();
 			System.out.print("커피 재고 : >>> ");
-			String c_stock = project_Main.scanner.next();
+			int c_stock = project_Main.scanner.nextInt();
 			coffee = new coffee_menu(c_name, c_price, c_stock);
 			for (int i = 0; i < project_Main.coffeeList.length; i++) {
 				if (project_Main.coffeeList[i] == null) {
@@ -169,16 +192,16 @@ public class admin_page {
 
 	}
 
-	// 4. 디저트 메뉴를 추가하는 메소드입니다.
+	// 6. 디저트 메뉴를 추가하는 메소드입니다.
 	public static void adminAddDessert() {
 		dessert_menu dessert;
 		System.out.println("디저트 이름 : ");
 		String d_name = project_Main.scanner.next();
-		if (adminDessertCheck(d_name)) { // 디저트 이름이 기존 리스트와 중복되지 않습니다.
+		if (adminDessertCheck(d_name)) { // 1. 디저트 이름이 기존 리스트와 중복되지 않는 경우에 통과합니다. 
 			System.out.print(d_name + " 디저트 가격 : ");
-			String d_price = project_Main.scanner.next();
+			int d_price = project_Main.scanner.nextInt();
 			System.out.print(d_name + " 디저트 재고 : ");
-			String d_stock = project_Main.scanner.next();
+			int d_stock = project_Main.scanner.nextInt();
 
 			dessert = new dessert_menu(d_name, d_price, d_stock); // coffee 객체를 생성합니다.
 			for (int i = 0; i < project_Main.coffeeList.length; i++) {
@@ -193,7 +216,7 @@ public class admin_page {
 
 	}
 
-	// 5. 커피 메뉴를 삭제하는 메소드입니다.
+	// 7. 커피 메뉴를 삭제하는 메소드입니다.
 	public static void adminDeleteCoffeeMenu() {
 		adminCoffeeList(); // 커피 목록 출력하는 메소드 호출
 		System.out.println("어떤 커피를 제외시키겠습니까? :");
@@ -217,18 +240,18 @@ public class admin_page {
 		}
 	}
 
-	// 7. 현재 커피 리스트를 출력하는 메소드입니다.
+	// 8. 현재 커피 리스트를 출력하는 메소드입니다.
 	public static void adminCoffeeList() {
 		for (int i = 0; i < project_Main.coffeeList.length; i++) {
 			if (project_Main.coffeeList[i] != null) {
-				System.out.println("커피 이름 : " + project_Main.coffeeList[i].getCoffeeType());
-				System.out.println("커피 가격 : " + project_Main.coffeeList[i].getCoffeePrice());
-				System.out.println("커피 재고: " + project_Main.coffeeList[i].getCoffeeStock());
+				System.out.println("커피 이름 : " + project_Main.coffeeList[i].getCoffee_name());
+				System.out.println("커피 가격 : " + project_Main.coffeeList[i].getCoffee_price());
+				System.out.println("커피 재고 : " + project_Main.coffeeList[i].getCoffee_stock());
 			}
 		}
 	}
 
-	// 8. 현재 디저트 리스트를 출력하는 화면입니다.
+	// 9. 현재 디저트 리스트를 출력하는 화면입니다.
 	public static void adminDessertList() {
 		for (int i = 0; i < project_Main.dessertList.length; i++) {
 			if (project_Main.dessertList[i] != null) {
@@ -239,18 +262,18 @@ public class admin_page {
 		}
 	}
 
-	// 9. 커피 메뉴를 수정하는 화면입니다.
+	// 10. 커피 메뉴를 수정하는 화면입니다.
 	public static void adminCoffeeModify() {
 		coffee_menu coffee;
 		adminCoffeeList(); // 커피 목록을 출력하고 선택하게 합니다.
 		System.out.println("커피 이름 : ");
 		String c_name = project_Main.scanner.next();
 		for (int i = 0; i < project_Main.coffeeList.length; i++) {
-			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].getCoffeeType().equals(c_name)) {
+			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].getCoffee_name().equals(c_name)) {
 				System.out.print("수정할 가격 : ");
-				String c_price = project_Main.scanner.next();
+				int c_price = project_Main.scanner.nextInt();
 				System.out.print("수정할 재고 : ");
-				String c_stock = project_Main.scanner.next();
+				int c_stock = project_Main.scanner.nextInt();
 				coffee = new coffee_menu(c_name, c_price, c_stock);
 				project_Main.coffeeList[i] = coffee; // 새로 입력받은 값으로 덮어씌웁니다.
 			}
@@ -258,7 +281,7 @@ public class admin_page {
 		}
 	}
 
-	// 10. 디저트 메뉴를 수정하는 화면입니다.
+	// 11. 디저트 메뉴를 수정하는 화면입니다.
 	public static void adminDessertModify() {
 		dessert_menu dessert;
 		adminDessertList();
@@ -267,14 +290,16 @@ public class admin_page {
 		for (int i = 0; i < project_Main.dessertList.length; i++) {
 			if (project_Main.dessertList[i] != null && project_Main.dessertList[i].getDessert_name().equals(d_name)) {
 				System.out.print("수정할 가격 : ");
-				String d_price = project_Main.scanner.next();
+				int d_price = project_Main.scanner.nextInt();
 				System.out.print("수정할 재고 : ");
-				String d_stock = project_Main.scanner.next();
+				int d_stock = project_Main.scanner.nextInt();
 				dessert = new dessert_menu(d_name, d_price, d_stock);
 				project_Main.dessertList[i] = dessert; // 새로 입력받은 값으로 덮어씌웁니다.
 			}
 		}
 	}
+
+	/* ------------- 여기서부터는 getter / setter 메소드 입니다. ----------- */
 
 	public String getAdmin_Id() {
 		return admin_Id;

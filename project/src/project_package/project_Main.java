@@ -3,18 +3,26 @@ package project_package;
 import java.util.Scanner;
 
 public class project_Main {
+	
+	/*
+	 *	프로그램이 최종적으로 실행되는 메인 메소드입니다. 
+	 *	관리자 메뉴, 커피와 디저트 메뉴가 출력되는 페이지, 결제하는 페이지 등으로  이루어져있습니다.
+	 *	
+	 */
 
 	public static Scanner scanner = new Scanner(System.in);
 	public static coffee_menu[] coffeeList = new coffee_menu[30];
 	public static dessert_menu[] dessertList = new dessert_menu[30];
-
-	public static customerOrder[] shoppingCart = new customerOrder[100];
+	public static customerOrder[] shoppingCart = new customerOrder[100]; 
 
 	public static void main(String[] args) {
-
-		admin_page adminPage = new admin_page();
-		coffee_menu coffeeMenu = new coffee_menu();
-		dessert_menu dessertMenu = new dessert_menu();
+		
+		// 1. 해당 클래스의 메소드를 전부 static 영역으로 지정해뒀기 때문에 
+		// 새로운 생성자를 만들 필요가 없습니다. 
+		
+//		admin_page adminPage = new admin_page();
+//		coffee_menu coffeeMenu = new coffee_menu();
+//		dessert_menu dessertMenu = new dessert_menu();
 
 		System.out.println("메인 실행 화면입니다. ");
 		boolean flag = true;
@@ -31,19 +39,19 @@ public class project_Main {
 					int userChoice2 = scanner.nextInt();
 					if (userChoice2 == 1) {
 						// 1번. 커피 주문하는 화면 출력
-						
-					} 
-					else if (userChoice2 == 2) {
+						coffee_menu.coffee_mainPage();
+
+					} else if (userChoice2 == 2) {
 						// 2번. 디저트 주문하는 화면 출력
-						dessertMenu.dessert_mainPage();;
-					}
-					else {
+						dessert_menu.dessert_mainPage();
+						;
+					} else {
 						System.out.println("잘못된 입력입니다. ");
 						flag2 = false;
 					}
 				}
 			} else if (userChoice1 == 2) { // 2. 관리자 화면 출력
-				adminPage.adminMenu();
+				admin_page.adminMenu();
 			} else if (userChoice1 == 3) { // 3. 프로그램 종료
 				System.out.println("프로그램을 종료합니다. ");
 				flag = false;
