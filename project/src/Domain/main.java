@@ -4,13 +4,16 @@ import java.util.Scanner;
 
 public class main {
 	
-	static Scanner scanner = new Scanner(System.in);
-	static coffee_menu[] coffeeList = new coffee_menu[30];
-	static dessert_menu[] dessertList = new dessert_menu[30];
+	public static Scanner scanner = new Scanner(System.in);
+	public static coffee_menu[] coffeeList = new coffee_menu[30];
+	public static dessert_menu[] dessertList = new dessert_menu[30];
 	
 	public static void main(String[] args) {
  
-		// admin_page 객체 호출 
+		// 관리자 페이지 실행 
+		
+		System.out.println("메인 실행 화면입니다. ");
+		
 		admin_page adminPage = new admin_page();
 		
 		adminPage.adminMenu();
