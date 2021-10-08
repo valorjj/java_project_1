@@ -13,6 +13,10 @@ public class dessert_menu extends admin_page {
 		this.dessert_price = dessert_price;
 		this.dessert_stock = dessert_stock;
 	}
+	
+	public dessert_menu() {
+		// TODO Auto-generated constructor stub
+	}
 
 	
 	// 디저트 메뉴 getter / setter 

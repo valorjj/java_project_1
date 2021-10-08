@@ -14,8 +14,11 @@ public class main {
 		admin_page adminPage = new admin_page();
 		
 		adminPage.adminMenu();
+
+	
 		
 
 	}
+
 
 }

@@ -8,6 +8,12 @@ public class coffee_menu extends admin_page {
 	String coffeeType; // 해당 메뉴 이름
 	String coffeePrice; // 해당 메뉴 가격
 	String coffeeStock; // 남은 재고
+	
+	
+
+	public coffee_menu() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public coffee_menu(String coffeeType, String coffeePrice, String coffeeStock) {
 		super();
@@ -41,5 +47,9 @@ public class coffee_menu extends admin_page {
 	public void setCoffeeStock(String coffeeStock) {
 		this.coffeeStock = coffeeStock;
 	}
+	
+	// 상세 메뉴 출력 창을 여기에?
+	// 
+	
 
 }
