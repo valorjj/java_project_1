@@ -1,4 +1,4 @@
-package Domain;
+package project_package;
 
 public class coffee_menu extends admin_page {
 

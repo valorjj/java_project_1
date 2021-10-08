@@ -1,4 +1,4 @@
-package Domain;
+package project_package;
 
 public class admin_page {
 
