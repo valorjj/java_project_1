@@ -14,9 +14,15 @@ public class dessert_menu extends admin_page {
 		this.dessert_stock = dessert_stock;
 	}
 	
-	public dessert_menu() {
-		// TODO Auto-generated constructor stub
+	public static void dessert_mainPage() {
+		System.out.println("디저트 출력 화면입니다. ");
+		adminDessertList(); // 디저트 리스트 출력 
+		
 	}
+	
+	public dessert_menu() {
+	}
+	
 
 	
 	// 디저트 메뉴 getter / setter 
