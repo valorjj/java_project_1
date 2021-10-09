@@ -38,14 +38,24 @@ public class project_Main {
 					System.out.println("1번. 커피 | 2번. 디저트 3번. 주문완료 >>> ");
 					int userChoice2 = scanner.nextInt();
 					if (userChoice2 == 1) {
-						// 1번. 커피 주문하는 화면 출력
-						coffee_menu.coffee_mainPage();
+						// 1. 커피 주문하는 화면 출력
+						coffee_menu.coffee_order();
 
-					} else if (userChoice2 == 2) {
-						// 2번. 디저트 주문하는 화면 출력
-						dessert_menu.dessert_mainPage();
-						;
-					} else {
+					} 
+					
+					else if (userChoice2 == 2) {
+						// 2. 디저트 주문하는 화면 출력
+						dessert_menu.dessert_order();
+						
+					} 
+					
+					else if (userChoice2 == 3) {
+						// 3. 주문을 완료하고 결과를 출력합니다.
+						System.out.println("주문결과입니다. ");
+						customerOrder.order_print();
+					}
+					
+					else {
 						System.out.println("잘못된 입력입니다. ");
 						flag2 = false;
 					}

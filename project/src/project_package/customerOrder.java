@@ -21,6 +21,17 @@ public class customerOrder {
 
 	}
 
+	public static void order_print() {
+		for (int i = 0; i < coffee_menu.coffeeArray.length; i++) {
+			if (coffee_menu.coffeeArray[i] != null) {
+				System.out.println("주문하신 커피 : " + project_Main.coffeeList[i].getCoffeeType());
+				System.out.println("온도는 : " + coffee_menu.coffeeArray[i].getCoffeeHotOrIce());
+				System.out.println("사이즈는 : " + coffee_menu.coffeeArray[i].getCoffeeSize());
+				System.out.println("주문하신 갯수는 : " + coffee_menu.coffeeArray[i].getCoffeeHowMany());
+			}
+		}
+	}
+
 	/**
 	 * @param customer_coffee
 	 * @param customer_dessert

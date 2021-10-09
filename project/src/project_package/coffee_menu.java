@@ -13,7 +13,7 @@ public class coffee_menu extends admin_page {
 	int coffeePrice;
 	int coffeeStock;
 
-	static coffee[] coffeeArray = new coffee[10];
+	static coffee[] coffeeArray = new coffee[10]; // 고객이 주문한 커피 정보를 담는 배열입니다.
 
 	/**
 	 * @param coffeeType
@@ -68,17 +68,22 @@ public class coffee_menu extends admin_page {
 		String userSelect_coffee_name = project_Main.scanner.next();
 		for (int i = 0; i < project_Main.coffeeList.length; i++) {
 			if (project_Main.coffeeList[i] != null
-					&& project_Main.coffeeList[i].adminCoffeeCheck(userSelect_coffee_name)) {
+					&& project_Main.coffeeList[i].getCoffeeType().equals(userSelect_coffee_name)) {
 				// 1. 입력된 메뉴와 동일할 경우 계속 진행합니다.
 				// 1. i 번째 저장된 메뉴를 주문하는 경우입니다.
-				int idx = i;
 				System.out.print("hot / ice : ");
 				String userSelect_coffee_temp = project_Main.scanner.next();
 				System.out.print("small / tall / large : ");
 				String userSelect_coffee_size = project_Main.scanner.next();
 				System.out.print("몇잔 주문하시겠습니까? : ");
 				int userSelect_coffee_howmany = project_Main.scanner.nextInt();
-
+				cof = new coffee(userSelect_coffee_name, userSelect_coffee_temp, userSelect_coffee_howmany, userSelect_coffee_size);
+				coffeeArray[i] = cof;
+				System.out.println();
+				break;
+			} else {
+				System.out.println("선택한 커피가 메뉴에 등록되어있지 않습니다. 관리자에게 문의하세요. ");
+				break;
 			}
 		}
 	}
