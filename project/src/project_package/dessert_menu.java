@@ -3,10 +3,26 @@ package project_package;
 public class dessert_menu extends admin_page {
 	
 	String dessertType;
-	String dessertPrice;
-	String dessertStock;
+	int dessertPrice;
+	int dessertStock;
 
 	static dessert[] dessertArray = new dessert[10];
+	
+	
+	
+	
+	/**
+	 * @param dessertType
+	 * @param dessertPrice
+	 * @param dessertStock
+	 */
+	public dessert_menu(String dessertType, int dessertPrice, int dessertStock) {
+		super();
+		this.dessertType = dessertType;
+		this.dessertPrice = dessertPrice;
+		this.dessertStock = dessertStock;
+	}
+
 	public dessert_menu() {
 	}
 
@@ -33,5 +49,42 @@ public class dessert_menu extends admin_page {
 			}
 		}
 	}
+
+	public String getDessertType() {
+		return dessertType;
+	}
+
+	public void setDessertType(String dessertType) {
+		this.dessertType = dessertType;
+	}
+
+	public int getDessertPrice() {
+		return dessertPrice;
+	}
+
+	public void setDessertPrice(int dessertPrice) {
+		this.dessertPrice = dessertPrice;
+	}
+
+	public int getDessertStock() {
+		return dessertStock;
+	}
+
+	public void setDessertStock(int dessertStock) {
+		this.dessertStock = dessertStock;
+	}
+
+	public static dessert[] getDessertArray() {
+		return dessertArray;
+	}
+
+	public static void setDessertArray(dessert[] dessertArray) {
+		dessert_menu.dessertArray = dessertArray;
+	}
+	
+	
+	
+	
+	
 
 }

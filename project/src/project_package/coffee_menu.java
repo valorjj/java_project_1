@@ -10,25 +10,22 @@ public class coffee_menu extends admin_page {
 	 *
 	 */
 	String coffeeType;
-	String coffeePrice;
-	String coffeeStock;
+	int coffeePrice;
+	int coffeeStock;
 
 	static coffee[] coffeeArray = new coffee[10];
-	
-	
 
 	/**
 	 * @param coffeeType
 	 * @param coffeePrice
 	 * @param coffeeStock
 	 */
-	public coffee_menu(String coffeeType, String coffeePrice, String coffeeStock) {
+	public coffee_menu(String coffeeType, int coffeePrice, int coffeeStock) {
 		super();
 		this.coffeeType = coffeeType;
 		this.coffeePrice = coffeePrice;
 		this.coffeeStock = coffeeStock;
 	}
-	
 
 	public coffee_menu() {
 	}
@@ -63,14 +60,15 @@ public class coffee_menu extends admin_page {
 
 	public static void coffee_order() {
 		// 0. coffee 클래스의 객체 생성
-		coffee cof; 
+		coffee cof;
 		// 1. 커피를 주문받습니다.
 		System.out.println("커피를 주문받는 화면입니다. ");
 		adminCoffeeList(); // 2. 주문가능한 커피 리스트를 출력합니다.
 		System.out.print("어떤 커피를 주문하시겠습니까? : ");
 		String userSelect_coffee_name = project_Main.scanner.next();
 		for (int i = 0; i < project_Main.coffeeList.length; i++) {
-			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].equals(userSelect_coffee_name)) {
+			if (project_Main.coffeeList[i] != null
+					&& project_Main.coffeeList[i].adminCoffeeCheck(userSelect_coffee_name)) {
 				// 1. 입력된 메뉴와 동일할 경우 계속 진행합니다.
 				// 1. i 번째 저장된 메뉴를 주문하는 경우입니다.
 				int idx = i;
@@ -80,12 +78,41 @@ public class coffee_menu extends admin_page {
 				String userSelect_coffee_size = project_Main.scanner.next();
 				System.out.print("몇잔 주문하시겠습니까? : ");
 				int userSelect_coffee_howmany = project_Main.scanner.nextInt();
-				cof = new coffee(userSelect_coffee_name, userSelect_coffee_temp, userSelect_coffee_howmany,
-						userSelect_coffee_size);
-				coffeeArray[i] = cof;
 
 			}
 		}
+	}
+
+	public String getCoffeeType() {
+		return coffeeType;
+	}
+
+	public void setCoffeeType(String coffeeType) {
+		this.coffeeType = coffeeType;
+	}
+
+	public int getCoffeePrice() {
+		return coffeePrice;
+	}
+
+	public void setCoffeePrice(int coffeePrice) {
+		this.coffeePrice = coffeePrice;
+	}
+
+	public int getCoffeeStock() {
+		return coffeeStock;
+	}
+
+	public void setCoffeeStock(int coffeeStock) {
+		this.coffeeStock = coffeeStock;
+	}
+
+	public static coffee[] getCoffeeArray() {
+		return coffeeArray;
+	}
+
+	public static void setCoffeeArray(coffee[] coffeeArray) {
+		coffee_menu.coffeeArray = coffeeArray;
 	}
 
 }

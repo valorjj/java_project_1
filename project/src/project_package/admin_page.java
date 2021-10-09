@@ -42,11 +42,11 @@ public class admin_page {
 
 	// 2. 관리자 메인 화면 출력하는 메소드입니다.
 	public static void adminMenu() {
-		
+
 		/*
-		 * 	이미 선언된 메소드들을 호출해서 사용합니다. 
-		 * 	프로그램이 최종적으로 동작할 main method 에 선언한 커피, 디저트 리스트를 호출해서 사용합니다. 
-		 * 	
+		 * 이미 선언된 메소드들을 호출해서 사용합니다. 프로그램이 최종적으로 동작할 main method 에 선언한 커피, 디저트 리스트를 호출해서
+		 * 사용합니다.
+		 * 
 		 * 
 		 */
 
@@ -147,14 +147,14 @@ public class admin_page {
 
 	// 3. 커피 메뉴에 중복메뉴가 있는지 체크하는 메소드입니다.
 	public static boolean adminCoffeeCheck(String name) {
-		
+
 		for (int i = 0; i < project_Main.coffeeList.length; i++) {
 
-			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].coffeeArray[i].equals(name)) {
-				// 1. 커피 리스트에 값이 존재하고 입력된 값과 동일한 메뉴가 존재하는 경우 => 중복이 생기는 경우 
+			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].getCoffeeType().equals(name)) {
+				// 1. 커피 리스트에 값이 존재하고 입력된 값과 동일한 메뉴가 존재하는 경우 => 중복이 생기는 경우
 				System.out.println("중복입니다. ");
-				// 2. 중복이 발생하는 경우 false 를 리턴합니다. 
-				return false; 
+				// 2. 중복이 발생하는 경우 false 를 리턴합니다.
+				return false;
 			}
 		}
 		return true; // 3. 중복이 아닌 경우에는 true 를 리턴합니다.
@@ -163,8 +163,8 @@ public class admin_page {
 	// 4. 디저트 메뉴에 중복메뉴가 있는지 체크하는 메소드입니다.
 	public static boolean adminDessertCheck(String name) {
 		for (int i = 0; i < project_Main.dessertList.length; i++) {
-			if (project_Main.dessertList[i] != null && project_Main.dessertList[i].dessertArray[i].equals(name)) {
-				// 디저트 리스트에 값이 존재하고 입력된 값과 동일한 메뉴가 존재하는 경우 => 중복이 생기는 경우 
+			if (project_Main.dessertList[i] != null && project_Main.dessertList[i].getDessertType().equals(name)) {
+				// 디저트 리스트에 값이 존재하고 입력된 값과 동일한 메뉴가 존재하는 경우 => 중복이 생기는 경우
 				System.out.println("중복입니다. ");
 				return false; // 2. 중복이 발생하는 경우 false 를 리턴합니다.
 			}
@@ -183,7 +183,7 @@ public class admin_page {
 			int c_price = project_Main.scanner.nextInt();
 			System.out.print("커피 재고 : >>> ");
 			int c_stock = project_Main.scanner.nextInt();
-			coffee = new coffee_menu();
+			coffee = new coffee_menu(c_name, c_price, c_stock);
 			for (int i = 0; i < project_Main.coffeeList.length; i++) {
 				if (project_Main.coffeeList[i] == null) {
 					project_Main.coffeeList[i] = coffee; // 비어있는 coffeeList 에 추가합니다.
@@ -201,13 +201,13 @@ public class admin_page {
 		dessert_menu dessert;
 		System.out.println("디저트 이름 : ");
 		String d_name = project_Main.scanner.next();
-		if (adminDessertCheck(d_name)) { // 1. 디저트 이름이 기존 리스트와 중복되지 않는 경우에 통과합니다. 
+		if (adminDessertCheck(d_name)) { // 1. 디저트 이름이 기존 리스트와 중복되지 않는 경우에 통과합니다.
 			System.out.print(d_name + " 디저트 가격 : ");
 			int d_price = project_Main.scanner.nextInt();
 			System.out.print(d_name + " 디저트 재고 : ");
 			int d_stock = project_Main.scanner.nextInt();
 
-			dessert = new dessert_menu(); // coffee 객체를 생성합니다.
+			dessert = new dessert_menu(d_name, d_price, d_stock); // coffee 객체를 생성합니다.
 			for (int i = 0; i < project_Main.coffeeList.length; i++) {
 				if (project_Main.dessertList[i] == null) {
 					project_Main.dessertList[i] = dessert; // 비어있는 coffeeList 에 추가합니다.
@@ -248,9 +248,9 @@ public class admin_page {
 	public static void adminCoffeeList() {
 		for (int i = 0; i < project_Main.coffeeList.length; i++) {
 			if (project_Main.coffeeList[i] != null) {
-				System.out.println("커피 이름 : " + project_Main.coffeeList[i].coffeeArray[i].getCoffeeWhichOne());
-				System.out.println("커피 가격 : " + project_Main.coffeeList[i].coffeeArray[i]);
-				System.out.println("커피 재고 : " + project_Main.coffeeList[i]);
+				System.out.println("커피 이름 : " + project_Main.coffeeList[i].coffeeType);
+				System.out.println("커피 가격 : " + project_Main.coffeeList[i].coffeePrice);
+				System.out.println("커피 재고 : " + project_Main.coffeeList[i].coffeeStock);
 			}
 		}
 	}
@@ -259,9 +259,9 @@ public class admin_page {
 	public static void adminDessertList() {
 		for (int i = 0; i < project_Main.dessertList.length; i++) {
 			if (project_Main.dessertList[i] != null) {
-				System.out.println("디저트 이름 : " + project_Main.dessertList[i]);
-				System.out.println("디저트 가격 : " + project_Main.dessertList[i]);
-				System.out.println("디저트 재고 : " + project_Main.dessertList[i]);
+				System.out.println("디저트 이름 : " + project_Main.dessertList[i].dessertType);
+				System.out.println("디저트 가격 : " + project_Main.dessertList[i].dessertPrice);
+				System.out.println("디저트 재고 : " + project_Main.dessertList[i].dessertStock);
 			}
 		}
 	}
@@ -278,7 +278,7 @@ public class admin_page {
 				int c_price = project_Main.scanner.nextInt();
 				System.out.print("수정할 재고 : ");
 				int c_stock = project_Main.scanner.nextInt();
-				coffee = new coffee_menu();
+				coffee = new coffee_menu(c_name, c_price, c_stock);
 				project_Main.coffeeList[i] = coffee; // 새로 입력받은 값으로 덮어씌웁니다.
 			}
 
@@ -297,7 +297,7 @@ public class admin_page {
 				int d_price = project_Main.scanner.nextInt();
 				System.out.print("수정할 재고 : ");
 				int d_stock = project_Main.scanner.nextInt();
-				dessert = new dessert_menu();
+				dessert = new dessert_menu(d_name, d_price, d_stock);
 				project_Main.dessertList[i] = dessert; // 새로 입력받은 값으로 덮어씌웁니다.
 			}
 		}
