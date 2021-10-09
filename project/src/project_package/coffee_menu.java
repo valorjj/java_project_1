@@ -1,51 +1,36 @@
 package project_package;
 
+import java.util.ArrayList;
+
+import java.util.List;
+
+/* ------ 소비자가 커피를 주문하는 화면을 출력합니다. ------- */
+
 public class coffee_menu extends admin_page {
 
-	// 커피 메뉴 클래스
-	// 아메리카노 | 라떼 | 콜드브루
+	String customer_picked_coffeeType;
+	int customer_picked_coffeePrice;
+	int customer_picked_coffeeQuantity;
+	static ArrayList<coffee> customer_coffeeArray = new ArrayList<coffee>();
 
-	/*
-	 * 반복적으로 사용되는 건 객체지향 프로그래밍을 통해 최대한 줄이려고 노력해봅니다. 커피 주문을 받고, 객체로 넘겨줍니다.
-	 *
-	 */
-	String coffeeType;
-	int coffeePrice;
-	int coffeeStock;
-
-	static coffee[] coffeeArray = new coffee[10]; // 고객이 주문한 커피 정보를 담는 배열입니다.
-
-	/**
-	 * @param coffeeType
-	 * @param coffeePrice
-	 * @param coffeeStock
-	 */
-	public coffee_menu(String coffeeType, int coffeePrice, int coffeeStock) {
-		super();
-		this.coffeeType = coffeeType;
-		this.coffeePrice = coffeePrice;
-		this.coffeeStock = coffeeStock;
-	}
-
-	// 빈 생성자 
+	// 빈 생성자
 	public coffee_menu() {
 	}
 
 	// 1. 커피를 주문하는 창을 띄우는 메소드입니다.
 	public static void coffee_mainPage() {
-		// 0. customer 객체를 생성해서 고객의 주문을 기록합니다.
-		customerOrder customer = new customerOrder();
+		// 1. 커피를 주문받습니다.
+		System.out.println("커피를 주문받는 화면입니다. ");
+		coffee_menu.order();
 
 	}
 
-	// 2. 커피를 주문받아서 customer 객체에 저장하는 메소드입니다.
 	public static void order() {
-		customerOrder customer;
-		int idx = 0;
+
 		boolean flag = true;
+
 		while (flag) {
-			System.out.println("커피를 주문하는 화면입니다. ");
-			System.out.print("1번. 주문 | 2번. 이전 화면으로 >>> ");
+			System.out.print("1번. 주문 | 2번. 뒤로 : ");
 			int userSelect = project_Main.scanner.nextInt();
 			if (userSelect == 1) {
 				// 1. 커피 혹은 디저트를 주문하는 메소드를 호출합니다.
@@ -54,72 +39,72 @@ public class coffee_menu extends admin_page {
 				System.out.println("이전화면으로 돌아갑니다. ");
 				flag = false;
 			}
-
 		}
-
 	}
+
+	// 2. 커피를 주문받아서 customer 객체에 저장하는 메소드입니다.
+		// 1. 저장할 데이터는 다음과 같습니다.
+			// 1. 종류 2. Hot or Ice 3. 사이즈 4. 갯수
 
 	public static void coffee_order() {
-		// 0. coffee 클래스의 객체 생성
+		
 		coffee cof;
-		// 1. 커피를 주문받습니다.
-		System.out.println("커피를 주문받는 화면입니다. ");
-		adminCoffeeList(); // 2. 주문가능한 커피 리스트를 출력합니다.
+
+		adminCoffeeList(); // 1. 주문가능한 커피 리스트를 출력합니다.
+		
+		System.out.println();
 		System.out.print("어떤 커피를 주문하시겠습니까? : ");
-		String userSelect_coffee_name = project_Main.scanner.next();
-		for (int i = 0; i < project_Main.coffeeList.length; i++) {
-			if (project_Main.coffeeList[i] != null
-					&& project_Main.coffeeList[i].getCoffeeType().equals(userSelect_coffee_name)) {
-				// 1. 입력된 메뉴와 동일할 경우 계속 진행합니다.
-				// 1. i 번째 저장된 메뉴를 주문하는 경우입니다.
-				System.out.print("hot / ice : ");
-				String userSelect_coffee_temp = project_Main.scanner.next();
-				System.out.print("small / tall / large : ");
-				String userSelect_coffee_size = project_Main.scanner.next();
-				System.out.print("몇잔 주문하시겠습니까? : ");
-				int userSelect_coffee_howmany = project_Main.scanner.nextInt();
-				cof = new coffee(userSelect_coffee_name, userSelect_coffee_temp, userSelect_coffee_howmany,
-						userSelect_coffee_size);
-				coffeeArray[i] = cof;
-				System.out.println();
-				break;
-			} else {
-				System.out.println("선택한 커피가 메뉴에 등록되어있지 않습니다. 관리자에게 문의하세요. ");
-				break;
-			}
+		String c_name = project_Main.scanner.next();
+		if (admin_coffeeArray.contains(c_name)) {
+			System.out.print("Hot or Ice : ");
+			String c_tempt = project_Main.scanner.next();
+			System.out.print("S | M | L : ");
+			String c_size = project_Main.scanner.next();
+			System.out.print("갯수 : ");
+			int c_quantity = project_Main.scanner.nextInt();
+			
+			cof = new coffee(c_name, c_tempt, c_size, c_quantity);
+			
+			customer_coffeeArray.add(cof);
+			
 		}
 	}
 
-	public String getCoffeeType() {
-		return coffeeType;
+	/**
+	 * @param customer_picked_coffeeType
+	 * @param customer_picked_coffeePrice
+	 * @param customer_picked_coffeeQuantity
+	 */
+	public coffee_menu(String customer_picked_coffeeType, int customer_picked_coffeePrice,
+			int customer_picked_coffeeQuantity) {
+		super();
+		this.customer_picked_coffeeType = customer_picked_coffeeType;
+		this.customer_picked_coffeePrice = customer_picked_coffeePrice;
+		this.customer_picked_coffeeQuantity = customer_picked_coffeeQuantity;
 	}
 
-	public void setCoffeeType(String coffeeType) {
-		this.coffeeType = coffeeType;
+	public String getCustomer_picked_coffeeType() {
+		return customer_picked_coffeeType;
 	}
 
-	public int getCoffeePrice() {
-		return coffeePrice;
+	public void setCustomer_picked_coffeeType(String customer_picked_coffeeType) {
+		this.customer_picked_coffeeType = customer_picked_coffeeType;
 	}
 
-	public void setCoffeePrice(int coffeePrice) {
-		this.coffeePrice = coffeePrice;
+	public int getCustomer_picked_coffeePrice() {
+		return customer_picked_coffeePrice;
 	}
 
-	public int getCoffeeStock() {
-		return coffeeStock;
+	public void setCustomer_picked_coffeePrice(int customer_picked_coffeePrice) {
+		this.customer_picked_coffeePrice = customer_picked_coffeePrice;
 	}
 
-	public void setCoffeeStock(int coffeeStock) {
-		this.coffeeStock = coffeeStock;
+	public int getCustomer_picked_coffeeQuantity() {
+		return customer_picked_coffeeQuantity;
 	}
 
-	public static coffee[] getCoffeeArray() {
-		return coffeeArray;
-	}
-
-	public static void setCoffeeArray(coffee[] coffeeArray) {
-		coffee_menu.coffeeArray = coffeeArray;
+	public void setCustomer_picked_coffeeQuantity(int customer_picked_coffeeQuantity) {
+		this.customer_picked_coffeeQuantity = customer_picked_coffeeQuantity;
 	}
 
 }

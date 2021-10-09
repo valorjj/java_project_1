@@ -2,53 +2,64 @@ package project_package;
 
 public class coffee extends coffee_menu {
 
-	String coffeeWhichOne; // 1. 손님이 주문한 커피의 종류
-	String coffeeHotOrIce; // 2. 손님이 주문한 커피 핫 / 아이스 여부
-	int coffeeHowMany; // 3. 손님이 주문한 커피의 갯수
-	String coffeeSize; // 4. 손님이 주문한 커피의 사이즈
+	// 1. 고객이 입력할 데이터는 다음과 같습니다.
+	// 1. 종류, 뜨겁게/차갑게, 사이즈, 수량
+	// 2. manage_coffee_list 에 해당 메뉴의 가격을 불러옵니다.
+
+	String customer_picked_coffeeType;
+	String customer_picked_coffeeHotorIce;
+	String customer_picked_coffeeSize;
+	int customer_picked_coffeeQuantity;
 
 	public coffee() {
 
 	}
 
-	public coffee(String coffeeWhichOne, String coffeeHotOrIce, int coffeeHowMany, String coffeeSize) {
+	/**
+	 * @param customer_picked_coffeeType
+	 * @param customer_picked_coffeeHotorIce
+	 * @param customer_picked_coffeeSize
+	 * @param customer_picked_coffeeQuantity
+	 */
+	public coffee(String customer_picked_coffeeType, String customer_picked_coffeeHotorIce,
+			String customer_picked_coffeeSize, int customer_picked_coffeeQuantity) {
 		super();
-		this.coffeeWhichOne = coffeeWhichOne;
-		this.coffeeHotOrIce = coffeeHotOrIce;
-		this.coffeeHowMany = coffeeHowMany;
-		this.coffeeSize = coffeeSize;
+		this.customer_picked_coffeeType = customer_picked_coffeeType;
+		this.customer_picked_coffeeHotorIce = customer_picked_coffeeHotorIce;
+		this.customer_picked_coffeeSize = customer_picked_coffeeSize;
+		this.customer_picked_coffeeQuantity = customer_picked_coffeeQuantity;
 	}
 
-	public String getCoffeeWhichOne() {
-		return coffeeWhichOne;
+	public String getCustomer_picked_coffeeType() {
+		return customer_picked_coffeeType;
 	}
 
-	public void setCoffeeWhichOne(String coffeeWhichOne) {
-		this.coffeeWhichOne = coffeeWhichOne;
+	public void setCustomer_picked_coffeeType(String customer_picked_coffeeType) {
+		this.customer_picked_coffeeType = customer_picked_coffeeType;
 	}
 
-	public String getCoffeeHotOrIce() {
-		return coffeeHotOrIce;
+	public String getCustomer_picked_coffeeHotorIce() {
+		return customer_picked_coffeeHotorIce;
 	}
 
-	public void setCoffeeHotOrIce(String coffeeHotOrIe) {
-		this.coffeeHotOrIce = coffeeHotOrIe;
+	public void setCustomer_picked_coffeeHotorIce(String customer_picked_coffeeHotorIce) {
+		this.customer_picked_coffeeHotorIce = customer_picked_coffeeHotorIce;
 	}
 
-	public int getCoffeeHowMany() {
-		return coffeeHowMany;
+	public String getCustomer_picked_coffeeSize() {
+		return customer_picked_coffeeSize;
 	}
 
-	public void setCoffeeHowMany(int coffeeHowMany) {
-		this.coffeeHowMany = coffeeHowMany;
+	public void setCustomer_picked_coffeeSize(String customer_picked_coffeeSize) {
+		this.customer_picked_coffeeSize = customer_picked_coffeeSize;
 	}
 
-	public String getCoffeeSize() {
-		return coffeeSize;
+	public int getCustomer_picked_coffeeQuantity() {
+		return customer_picked_coffeeQuantity;
 	}
 
-	public void setCoffeeSize(String coffeeSize) {
-		this.coffeeSize = coffeeSize;
+	public void setCustomer_picked_coffeeQuantity(int customer_picked_coffeeQuantity) {
+		this.customer_picked_coffeeQuantity = customer_picked_coffeeQuantity;
 	}
 
 }
