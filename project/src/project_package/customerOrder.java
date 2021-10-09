@@ -8,27 +8,45 @@ package project_package;
  *  coffee, dessert 클래스의 부모 클래스입니다. 
  */
 public class customerOrder {
-	
+
 	/*
-	 *	coffee 클래스를 호출해서 메뉴 이름, 온도, 수량, 사이즈 받는다.
-	 * 	coffee 객체에 담은 뒤 다시 customer 클래스에 담는다.
+	 * coffee 클래스를 호출해서 메뉴 이름, 온도, 수량, 사이즈 받는다. coffee 객체에 담은 뒤 다시 customer 클래스에
+	 * 담는다.
 	 */
-	
+
 	coffee customer_coffee;
 	dessert customer_dessert;
-	
-	
 
 	public customerOrder() {
-		
+
 	}
-	
-	public void customerOrder(coffee customer_coffee, dessert customer_dessert) {
-		// 
+
+	/**
+	 * @param customer_coffee
+	 * @param customer_dessert
+	 */
+	public customerOrder(coffee customer_coffee, dessert customer_dessert) {
+		super();
+		this.customer_coffee = customer_coffee;
+		this.customer_dessert = customer_dessert;
 	}
-	
-	// coffee, dessert 주문 정보를 배열로 넘길 생각입니다. 
-	
-	
+
+	public coffee getCustomer_coffee() {
+		return customer_coffee;
+	}
+
+	public void setCustomer_coffee(coffee customer_coffee) {
+		this.customer_coffee = customer_coffee;
+	}
+
+	public dessert getCustomer_dessert() {
+		return customer_dessert;
+	}
+
+	public void setCustomer_dessert(dessert customer_dessert) {
+		this.customer_dessert = customer_dessert;
+	}
+
+	// coffee, dessert 주문 정보를 배열로 넘길 생각입니다.
 
 }

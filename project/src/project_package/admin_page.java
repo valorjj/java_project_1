@@ -1,5 +1,8 @@
 package project_package;
 
+import project_package.coffee;
+import project_package.dessert;
+
 public class admin_page {
 
 	/*
@@ -144,9 +147,10 @@ public class admin_page {
 
 	// 3. 커피 메뉴에 중복메뉴가 있는지 체크하는 메소드입니다.
 	public static boolean adminCoffeeCheck(String name) {
+		
 		for (int i = 0; i < project_Main.coffeeList.length; i++) {
 
-			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].getCoffee_name().equals(name)) {
+			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].coffeeArray[i].equals(name)) {
 				// 1. 커피 리스트에 값이 존재하고 입력된 값과 동일한 메뉴가 존재하는 경우 => 중복이 생기는 경우 
 				System.out.println("중복입니다. ");
 				// 2. 중복이 발생하는 경우 false 를 리턴합니다. 
@@ -159,7 +163,7 @@ public class admin_page {
 	// 4. 디저트 메뉴에 중복메뉴가 있는지 체크하는 메소드입니다.
 	public static boolean adminDessertCheck(String name) {
 		for (int i = 0; i < project_Main.dessertList.length; i++) {
-			if (project_Main.dessertList[i] != null && project_Main.dessertList[i].getDessert_name().equals(name)) {
+			if (project_Main.dessertList[i] != null && project_Main.dessertList[i].dessertArray[i].equals(name)) {
 				// 디저트 리스트에 값이 존재하고 입력된 값과 동일한 메뉴가 존재하는 경우 => 중복이 생기는 경우 
 				System.out.println("중복입니다. ");
 				return false; // 2. 중복이 발생하는 경우 false 를 리턴합니다.
@@ -179,7 +183,7 @@ public class admin_page {
 			int c_price = project_Main.scanner.nextInt();
 			System.out.print("커피 재고 : >>> ");
 			int c_stock = project_Main.scanner.nextInt();
-			coffee = new coffee_menu(c_name, c_price, c_stock);
+			coffee = new coffee_menu();
 			for (int i = 0; i < project_Main.coffeeList.length; i++) {
 				if (project_Main.coffeeList[i] == null) {
 					project_Main.coffeeList[i] = coffee; // 비어있는 coffeeList 에 추가합니다.
@@ -203,7 +207,7 @@ public class admin_page {
 			System.out.print(d_name + " 디저트 재고 : ");
 			int d_stock = project_Main.scanner.nextInt();
 
-			dessert = new dessert_menu(d_name, d_price, d_stock); // coffee 객체를 생성합니다.
+			dessert = new dessert_menu(); // coffee 객체를 생성합니다.
 			for (int i = 0; i < project_Main.coffeeList.length; i++) {
 				if (project_Main.dessertList[i] == null) {
 					project_Main.dessertList[i] = dessert; // 비어있는 coffeeList 에 추가합니다.
@@ -244,9 +248,9 @@ public class admin_page {
 	public static void adminCoffeeList() {
 		for (int i = 0; i < project_Main.coffeeList.length; i++) {
 			if (project_Main.coffeeList[i] != null) {
-				System.out.println("커피 이름 : " + project_Main.coffeeList[i].getCoffee_name());
-				System.out.println("커피 가격 : " + project_Main.coffeeList[i].getCoffee_price());
-				System.out.println("커피 재고 : " + project_Main.coffeeList[i].getCoffee_stock());
+				System.out.println("커피 이름 : " + project_Main.coffeeList[i].coffeeArray[i].getCoffeeWhichOne());
+				System.out.println("커피 가격 : " + project_Main.coffeeList[i].coffeeArray[i]);
+				System.out.println("커피 재고 : " + project_Main.coffeeList[i]);
 			}
 		}
 	}
@@ -255,9 +259,9 @@ public class admin_page {
 	public static void adminDessertList() {
 		for (int i = 0; i < project_Main.dessertList.length; i++) {
 			if (project_Main.dessertList[i] != null) {
-				System.out.println("디저트 이름 : " + project_Main.dessertList[i].getDessert_name());
-				System.out.println("디저트 가격 : " + project_Main.dessertList[i].getDessert_price());
-				System.out.println("디저트 재고 : " + project_Main.dessertList[i].getDessert_stock());
+				System.out.println("디저트 이름 : " + project_Main.dessertList[i]);
+				System.out.println("디저트 가격 : " + project_Main.dessertList[i]);
+				System.out.println("디저트 재고 : " + project_Main.dessertList[i]);
 			}
 		}
 	}
@@ -269,12 +273,12 @@ public class admin_page {
 		System.out.println("커피 이름 : ");
 		String c_name = project_Main.scanner.next();
 		for (int i = 0; i < project_Main.coffeeList.length; i++) {
-			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].getCoffee_name().equals(c_name)) {
+			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].adminDessertCheck(c_name)) {
 				System.out.print("수정할 가격 : ");
 				int c_price = project_Main.scanner.nextInt();
 				System.out.print("수정할 재고 : ");
 				int c_stock = project_Main.scanner.nextInt();
-				coffee = new coffee_menu(c_name, c_price, c_stock);
+				coffee = new coffee_menu();
 				project_Main.coffeeList[i] = coffee; // 새로 입력받은 값으로 덮어씌웁니다.
 			}
 
@@ -288,12 +292,12 @@ public class admin_page {
 		System.out.println("디저트이름 : ");
 		String d_name = project_Main.scanner.next();
 		for (int i = 0; i < project_Main.dessertList.length; i++) {
-			if (project_Main.dessertList[i] != null && project_Main.dessertList[i].getDessert_name().equals(d_name)) {
+			if (project_Main.dessertList[i] != null && project_Main.dessertList[i].adminDessertCheck(d_name)) {
 				System.out.print("수정할 가격 : ");
 				int d_price = project_Main.scanner.nextInt();
 				System.out.print("수정할 재고 : ");
 				int d_stock = project_Main.scanner.nextInt();
-				dessert = new dessert_menu(d_name, d_price, d_stock);
+				dessert = new dessert_menu();
 				project_Main.dessertList[i] = dessert; // 새로 입력받은 값으로 덮어씌웁니다.
 			}
 		}

@@ -9,8 +9,26 @@ public class coffee_menu extends admin_page {
 	 * 반복적으로 사용되는 건 객체지향 프로그래밍을 통해 최대한 줄이려고 노력해봅니다. 커피 주문을 받고, 객체로 넘겨줍니다.
 	 *
 	 */
+	String coffeeType;
+	String coffeePrice;
+	String coffeeStock;
 
 	static coffee[] coffeeArray = new coffee[10];
+	
+	
+
+	/**
+	 * @param coffeeType
+	 * @param coffeePrice
+	 * @param coffeeStock
+	 */
+	public coffee_menu(String coffeeType, String coffeePrice, String coffeeStock) {
+		super();
+		this.coffeeType = coffeeType;
+		this.coffeePrice = coffeePrice;
+		this.coffeeStock = coffeeStock;
+	}
+	
 
 	public coffee_menu() {
 	}
@@ -44,15 +62,15 @@ public class coffee_menu extends admin_page {
 	}
 
 	public static void coffee_order() {
-		coffee cof;
+		// 0. coffee 클래스의 객체 생성
+		coffee cof; 
 		// 1. 커피를 주문받습니다.
 		System.out.println("커피를 주문받는 화면입니다. ");
 		adminCoffeeList(); // 2. 주문가능한 커피 리스트를 출력합니다.
 		System.out.print("어떤 커피를 주문하시겠습니까? : ");
 		String userSelect_coffee_name = project_Main.scanner.next();
 		for (int i = 0; i < project_Main.coffeeList.length; i++) {
-			if (project_Main.coffeeList[i] != null
-					&& project_Main.coffeeList[i].equals(userSelect_coffee_name)) {
+			if (project_Main.coffeeList[i] != null && project_Main.coffeeList[i].equals(userSelect_coffee_name)) {
 				// 1. 입력된 메뉴와 동일할 경우 계속 진행합니다.
 				// 1. i 번째 저장된 메뉴를 주문하는 경우입니다.
 				int idx = i;
@@ -62,29 +80,12 @@ public class coffee_menu extends admin_page {
 				String userSelect_coffee_size = project_Main.scanner.next();
 				System.out.print("몇잔 주문하시겠습니까? : ");
 				int userSelect_coffee_howmany = project_Main.scanner.nextInt();
-				cof = new coffee(userSelect_coffee_name, userSelect_coffee_temp, userSelect_coffee_howmany, userSelect_coffee_size);
+				cof = new coffee(userSelect_coffee_name, userSelect_coffee_temp, userSelect_coffee_howmany,
+						userSelect_coffee_size);
 				coffeeArray[i] = cof;
-				
-			}
-		}
 
-	}
-	
-	public static void dessert_order() {
-		dessert des;
-		// 1. 디저트를 주문받습니다.
-		adminDessertList();
-		System.out.println("어떤 디저트를 주문하시겠습니까? : ");
-		String userSelect_dessert_name = project_Main.scanner.next();
-		for(int i=0; i<project_Main.dessertList.length; i++) {
-			if(project_Main.dessertList[i] != null && project_Main.dessertList[i].equals(userSelect_dessert_name)) {
-				int idx = i;
-				System.out.println("몇개나 주문하시겠습니까 ? : ");
-				int userSelect_dessert_howmany = project_Main.scanner.nextInt();
-				
 			}
 		}
 	}
-
 
 }
