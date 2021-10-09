@@ -62,7 +62,6 @@ public class admin_coffee extends admin_page {
 	}
 
 	// 3. [관리자] 커피 메뉴 삭제
-	@SuppressWarnings("unlikely-arg-type")
 	public static void admin_delete_coffee() {
 		System.out.println("[관리자메뉴] 삭제할 커피 이름 : ");
 		String c_name = project_Main.scanner.next();
@@ -72,19 +71,18 @@ public class admin_coffee extends admin_page {
 	}
 
 	// 4. [관리자] 커피 메뉴 수정
-	@SuppressWarnings("unlikely-arg-type")
 	public static void admin_modify_coffee() {
 		System.out.println("[관리자메뉴] 수정할 커피 이름 : ");
 		String c_name = project_Main.scanner.next();
 		if (admin_coffeeArray.contains(c_name)) {
-			int j = admin_coffeeArray.indexOf(c_name);
-			admin_coffeeArray.get(j).setAdmin_coffeeName(c_name);
+			int idx = admin_coffeeArray.indexOf(c_name);
+			admin_coffeeArray.get(idx).setAdmin_coffeeName(c_name);
 			System.out.println("[관리자메뉴] 수정할 가격 : ");
 			int c_price = project_Main.scanner.nextInt();
 			System.out.println("[관리자메뉴] 수정할 재고 : ");
 			int c_stock = project_Main.scanner.nextInt();
-			admin_coffeeArray.get(j).setAdmin_coffeePrice(c_price);
-			admin_coffeeArray.get(j).setAdmin_coffeeInventory(c_stock);
+			admin_coffeeArray.get(idx).setAdmin_coffeePrice(c_price);
+			admin_coffeeArray.get(idx).setAdmin_coffeeInventory(c_stock);
 		} else {
 			System.out.println("[관리자메뉴] 해당 커피가 존재하지 않습니다. ");
 		}
