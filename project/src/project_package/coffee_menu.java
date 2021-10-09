@@ -27,6 +27,7 @@ public class coffee_menu extends admin_page {
 		this.coffeeStock = coffeeStock;
 	}
 
+	// 빈 생성자 
 	public coffee_menu() {
 	}
 
@@ -77,7 +78,8 @@ public class coffee_menu extends admin_page {
 				String userSelect_coffee_size = project_Main.scanner.next();
 				System.out.print("몇잔 주문하시겠습니까? : ");
 				int userSelect_coffee_howmany = project_Main.scanner.nextInt();
-				cof = new coffee(userSelect_coffee_name, userSelect_coffee_temp, userSelect_coffee_howmany, userSelect_coffee_size);
+				cof = new coffee(userSelect_coffee_name, userSelect_coffee_temp, userSelect_coffee_howmany,
+						userSelect_coffee_size);
 				coffeeArray[i] = cof;
 				System.out.println();
 				break;
