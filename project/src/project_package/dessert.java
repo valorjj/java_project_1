@@ -1,6 +1,6 @@
 package project_package;
 
-public class dessert extends dessert_menu {
+public class dessert {
 
 	String dessertWhichOne;
 	int dessertHowMany;
