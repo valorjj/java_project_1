@@ -2,8 +2,6 @@ package project_package;
 
 import java.util.ArrayList;
 
-import java.util.List;
-
 /* ------ 소비자가 커피를 주문하는 화면을 출력합니다. ------- */
 
 public class coffee_menu extends admin_page {
@@ -15,6 +13,18 @@ public class coffee_menu extends admin_page {
 
 	// 빈 생성자
 	public coffee_menu() {
+	}
+
+	public void customer_coffee_order_print() {
+		for (coffee c : customer_coffeeArray) {
+			System.out.println("--------- [ 주문내역 ] ----------");
+			System.out.println("종류 : " + c.getCustomer_picked_coffeeType());
+			System.out.println("Hot / Ice ? : " + c.getCustomer_picked_coffeeHotorIce());
+			System.out.println("사이즈 : " + c.getCustomer_picked_coffeeSize());
+			System.out.println("갯수 : " + c.getCustomer_picked_coffeeQuantity());
+			System.out.println();
+		}
+
 	}
 
 	// 1. 커피를 주문하는 창을 띄우는 메소드입니다.
@@ -42,31 +52,31 @@ public class coffee_menu extends admin_page {
 		}
 	}
 
-	// 2. 커피를 주문받아서 customer 객체에 저장하는 메소드입니다.
-		// 1. 저장할 데이터는 다음과 같습니다.
-			// 1. 종류 2. Hot or Ice 3. 사이즈 4. 갯수
-
 	public static void coffee_order() {
-		
+
 		coffee cof;
 
 		adminCoffeeList(); // 1. 주문가능한 커피 리스트를 출력합니다.
-		
+
 		System.out.println();
 		System.out.print("어떤 커피를 주문하시겠습니까? : ");
 		String c_name = project_Main.scanner.next();
-		if (admin_coffeeArray.contains(c_name)) {
-			System.out.print("Hot or Ice : ");
-			String c_tempt = project_Main.scanner.next();
-			System.out.print("S | M | L : ");
-			String c_size = project_Main.scanner.next();
-			System.out.print("갯수 : ");
-			int c_quantity = project_Main.scanner.nextInt();
-			
-			cof = new coffee(c_name, c_tempt, c_size, c_quantity);
-			
-			customer_coffeeArray.add(cof);
-			
+
+		for (int i = 0; i < admin_coffeeArray.size(); i++) {
+			if (admin_coffeeArray.get(i).getAdmin_coffeeName().equals(c_name)) {
+				System.out.print("Hot | Ice : ");
+				String c_tempt = project_Main.scanner.next();
+				System.out.print("S | M | L : ");
+				String c_size = project_Main.scanner.next();
+				System.out.print("주문 수량 : ");
+				int c_quantity = project_Main.scanner.nextInt();
+				int c_price = admin_coffeeArray.get(i).getAdmin_coffeePrice();
+				cof = new coffee(c_name, c_tempt, c_size, c_quantity, c_price);
+				customer_coffeeArray.add(cof);
+				break;
+			} else {
+				System.out.println("[커피 주문] 잘못된 입력입니다 ... ");
+			}
 		}
 	}
 

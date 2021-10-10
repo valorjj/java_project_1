@@ -2,34 +2,51 @@ package project_package;
 
 public class dessert {
 
-	
-	String dessertWhichOne;
-	int dessertHowMany;
+	String customer_picked_dessertName;
+	int customer_picked_dessertQuantity;
+	int customer_picked_dessertPrice;
 
 	public dessert() {
 
 	}
 
-	public dessert(String dessertWhichOne, int dessertHowMany) {
+	/**
+	 * @param customer_picked_dessertName
+	 * @param customer_picked_dessertQuantity
+	 * @param customer_picked_dessertPrice
+	 */
+	public dessert(String customer_picked_dessertName, int customer_picked_dessertQuantity,
+			int customer_picked_dessertPrice) {
 		super();
-		this.dessertWhichOne = dessertWhichOne;
-		this.dessertHowMany = dessertHowMany;
+		this.customer_picked_dessertName = customer_picked_dessertName;
+		this.customer_picked_dessertQuantity = customer_picked_dessertQuantity;
+		this.customer_picked_dessertPrice = customer_picked_dessertPrice;
 	}
 
-	public String getDessertWhichOne() {
-		return dessertWhichOne;
+	public String getCustomer_picked_dessertName() {
+		return customer_picked_dessertName;
 	}
 
-	public void setDessertWhichOne(String dessertWhichOne) {
-		this.dessertWhichOne = dessertWhichOne;
+	public void setCustomer_picked_dessertName(String customer_picked_dessertName) {
+		this.customer_picked_dessertName = customer_picked_dessertName;
 	}
 
-	public int getDessertHowMany() {
-		return dessertHowMany;
+	public int getCustomer_picked_dessertQuantity() {
+		return customer_picked_dessertQuantity;
 	}
 
-	public void setDessertHowMany(int dessertHowMany) {
-		this.dessertHowMany = dessertHowMany;
+	public void setCustomer_picked_dessertQuantity(int customer_picked_dessertQuantity) {
+		this.customer_picked_dessertQuantity = customer_picked_dessertQuantity;
 	}
+
+	public int getCustomer_picked_dessertPrice() {
+		return customer_picked_dessertPrice;
+	}
+
+	public void setCustomer_picked_dessertPrice(int customer_picked_dessertPrice) {
+		this.customer_picked_dessertPrice = customer_picked_dessertPrice;
+	}
+	
+	
 
 }

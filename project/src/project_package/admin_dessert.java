@@ -10,11 +10,11 @@ public class admin_dessert extends admin_page {
 	}
 
 	public static void admin_dessert_page() {
-		System.out.println("[관리자메뉴] 디저트 등록 및 수정 ");
+		System.out.println("[관리자] 디저트 등록 및 수정 ");
 		System.out.println(" ------------------------ ");
 		boolean flag = true;
 		while (flag) {
-			System.out.println("1. 등록 | 2. 수정 | 3. 삭제 | 4. 종료 : ");
+			System.out.print("1. 등록 | 2. 수정 | 3. 삭제 | 4. 종료 : ");
 			int ch = project_Main.scanner.nextInt();
 			switch (ch) {
 			case 1:
@@ -27,6 +27,7 @@ public class admin_dessert extends admin_page {
 				admin_delete_dessert();
 				break;
 			case 4:
+				System.out.println("이전 페이지로 이동 ... ");
 				flag = false;
 				break;
 			default:
@@ -38,11 +39,12 @@ public class admin_dessert extends admin_page {
 	}
 
 	private static void admin_add_dessert() {
-		System.out.println("[관리자메뉴] 추가할 디저트 이름 : ");
+		
+		System.out.print("[관리자] 추가할 디저트 이름 : ");
 		String d_name = project_Main.scanner.next();
-		System.out.println("[관리자메뉴] 디저트 가격 : ");
+		System.out.print("[관리자] 디저트 가격 : ");
 		int d_price = project_Main.scanner.nextInt();
-		System.out.println("[관리자메뉴] 디저트 재고 : ");
+		System.out.print("[관리자] 디저트 재고 : ");
 		int d_inventory = project_Main.scanner.nextInt();
 
 		admin_dessert admin = new admin_dessert(d_name, d_price, d_inventory);
@@ -52,26 +54,25 @@ public class admin_dessert extends admin_page {
 	}
 
 	private static void admin_modify_dessert() {
-		System.out.println("[관리자메뉴] 수정할 디저트 이름 : ");
+		System.out.print("[관리자] 수정할 디저트 이름 : ");
 		String d_name = project_Main.scanner.next();
 		if (admin_dessertArray.contains(d_name)) {
 			int idx = admin_dessertArray.indexOf(d_name);
 			admin_dessertArray.get(idx).setAdmin_dessertName(d_name);
-			System.out.println("[관리자메뉴] 수정할 가격 : ");
+			System.out.print("[관리자] 수정할 가격 : ");
 			int d_price = project_Main.scanner.nextInt();
 			admin_coffeeArray.get(idx).setAdmin_coffeePrice(d_price);
-			System.out.println("[관리자메뉴] 수정할 가격 : ");
+			System.out.print("[관리자] 수정할 가격 : ");
 			int d_stock = project_Main.scanner.nextInt();
 			admin_coffeeArray.get(idx).setAdmin_coffeeInventory(d_stock);
 		} else {
-			System.out.println("[관리자메뉴] 해당 디저트가 존재하지 않습니다. ");
+			System.out.println("[관리자] 해당 디저트가 존재하지 않습니다. ");
 		}
 
 	}
 
 	private static void admin_delete_dessert() {
-
-		System.out.println("[관리자메뉴] 삭제할 디저트 이름 : ");
+		System.out.println("[관리자] 삭제할 디저트 이름 : ");
 		String d_name = project_Main.scanner.next();
 		if (admin_dessertArray.contains(d_name)) {
 			admin_dessertArray.remove(admin_dessertArray.indexOf(d_name));

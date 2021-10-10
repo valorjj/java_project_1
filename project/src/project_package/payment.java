@@ -34,30 +34,21 @@ public class payment extends customerOrder {
 		System.out.println("주문하신 메뉴는 다음과 같습니다. ");
 		// 1. 고객이 주문한 메뉴를 출력합니다.
 		customerOrder.order_print();
-		System.out.println("총 결제할 금액은 다음과 같습니다. " +  p.getCoffeePayment() + p.getDessertPayment());
+		System.out.println("총 결제할 금액은 다음과 같습니다. " + p.getCoffeePayment() + p.getDessertPayment());
 		return p.getCoffeePayment() + p.getDessertPayment();
 	}
 
+	// 1. 고객이 지불할 커피 메뉴 항목의 금액을 산출하는 메소드입니다.
 	public static void coffee_payment() {
 		payment p = new payment();
 		int c_money = 0;
-		// 1. 고객이 지불할 커피 항목 금액입니다.
-		// 1. coffeeArray 는 고객이 주문한 항목입니다.
-		// 2. coffeeList 는 관리자 메뉴에 등록한 항목입니다.
-		for (int i = 0; i < coffee_menu.coffeeArray.length; i++) {
-			if (coffee_menu.coffeeArray[i] != null) {
-				for (int j = 0; j < project_Main.coffeeList.length; j++) {
-					if (project_Main.coffeeList[j] != null && project_Main.coffeeList[j].getCoffeeType()
-							.equals(coffee_menu.coffeeArray[i].getCoffeeWhichOne())) {
-						c_money += project_Main.coffeeList[j].getCoffeePrice()
-								* coffee_menu.coffeeArray[i].getCoffeeHowMany();
-
-					}
-				}
-			}
+		// 1. customer_coffeeArray 에는 고객이 주문한 커피 정보가 담겨있습니다. 
+		for (int i = 0; i < coffee_menu.customer_coffeeArray.size(); i++) {
+			int var1 = coffee_menu.customer_coffeeArray.get(i).getCustomer_picked_coffeeQuantity();
+			int var2 = coffee_menu.customer_coffeeArray.get(i).getCustomer_picked_coffeePrice();
+			int multi = var1 * var2;
+			c_money += multi;
 		}
-
-		p.setCoffeePayment(c_money);
 
 	}
 
@@ -67,16 +58,8 @@ public class payment extends customerOrder {
 		int d_money = 0;
 		// 1. 고객이 지불할 디저트 항목 금액입니다.
 
-		for (int i = 0; i < dessert_menu.dessertArray.length; i++) {
-			if (dessert_menu.dessertArray[i] != null) {
-				for (int j = 0; j < project_Main.dessertList.length; j++) {
-					if (project_Main.dessertList[j] != null && project_Main.dessertList[j].getDessertType()
-							.equals(dessert_menu.dessertArray[i].getDessertWhichOne())) {
-						d_money += dessert_menu.dessertArray[i].getDessertHowMany()
-								* project_Main.dessertList[j].getDessertPrice();
-					}
-				}
-			}
+		for (int i = 0; i < dessert_menu.customer_dessertArray.size(); i++) {
+
 		}
 		p.setDessertPayment(d_money);
 	}

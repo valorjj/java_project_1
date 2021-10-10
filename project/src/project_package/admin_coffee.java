@@ -33,12 +33,12 @@ public class admin_coffee extends admin_page {
 				break;
 			case 4:
 				// 4. 종료
-				System.out.println("이전 페이지로 이동 ... ");
+				System.out.println("[관리자] 이전 페이지로 이동 ");
 				flag = false;
 				break;
 			default:
 				// 5. 잘못된 접근
-				System.out.println("잘못된 경로 입니다 ... ");
+				System.out.println("[관리자] 유효하지 않은 입력입니다. ");
 
 			}
 
@@ -48,11 +48,11 @@ public class admin_coffee extends admin_page {
 	// 2. [관리자] 커피 메뉴 등록
 	public static void admin_add_coffee() {
 
-		System.out.print("[관리자메뉴] 추가할 커피 이름 : ");
+		System.out.print("[관리자] 추가할 커피 이름 : ");
 		String c_name = project_Main.scanner.next();
-		System.out.print("[관리자메뉴] 커피 가격 : ");
+		System.out.print("[관리자] 커피 가격 : ");
 		int c_price = project_Main.scanner.nextInt();
-		System.out.print("[관리자메뉴] 커피 재고 : ");
+		System.out.print("[관리자] 커피 재고 : ");
 		int c_inventory = project_Main.scanner.nextInt();
 
 		admin_coffee admin = new admin_coffee(c_name, c_price, c_inventory);
@@ -63,7 +63,7 @@ public class admin_coffee extends admin_page {
 
 	// 3. [관리자] 커피 메뉴 삭제
 	public static void admin_delete_coffee() {
-		System.out.println("[관리자메뉴] 삭제할 커피 이름 : ");
+		System.out.println("[관리자] 삭제할 커피 이름 : ");
 		String c_name = project_Main.scanner.next();
 		if (admin_coffeeArray.contains(c_name)) {
 			admin_coffeeArray.remove(admin_coffeeArray.indexOf(c_name));
@@ -72,19 +72,19 @@ public class admin_coffee extends admin_page {
 
 	// 4. [관리자] 커피 메뉴 수정
 	public static void admin_modify_coffee() {
-		System.out.println("[관리자메뉴] 수정할 커피 이름 : ");
+		System.out.println("[관리자] 수정할 커피 이름 : ");
 		String c_name = project_Main.scanner.next();
 		if (admin_coffeeArray.contains(c_name)) {
 			int idx = admin_coffeeArray.indexOf(c_name);
 			admin_coffeeArray.get(idx).setAdmin_coffeeName(c_name);
-			System.out.println("[관리자메뉴] 수정할 가격 : ");
+			System.out.println("[관리자] 수정할 가격 : ");
 			int c_price = project_Main.scanner.nextInt();
-			System.out.println("[관리자메뉴] 수정할 재고 : ");
+			System.out.println("[[관리자] 수정할 재고 : ");
 			int c_stock = project_Main.scanner.nextInt();
 			admin_coffeeArray.get(idx).setAdmin_coffeePrice(c_price);
 			admin_coffeeArray.get(idx).setAdmin_coffeeInventory(c_stock);
 		} else {
-			System.out.println("[관리자메뉴] 해당 커피가 존재하지 않습니다. ");
+			System.out.println("[관리자] 해당 커피가 존재하지 않습니다. ");
 		}
 	}
 

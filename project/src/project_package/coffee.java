@@ -11,6 +11,8 @@ public class coffee extends coffee_menu {
 	String customer_picked_coffeeSize;
 	int customer_picked_coffeeQuantity;
 
+	int custmer_picked_coffeePrice;
+
 	public coffee() {
 
 	}
@@ -28,6 +30,23 @@ public class coffee extends coffee_menu {
 		this.customer_picked_coffeeHotorIce = customer_picked_coffeeHotorIce;
 		this.customer_picked_coffeeSize = customer_picked_coffeeSize;
 		this.customer_picked_coffeeQuantity = customer_picked_coffeeQuantity;
+	}
+
+	/**
+	 * @param customer_picked_coffeeType
+	 * @param customer_picked_coffeeHotorIce
+	 * @param customer_picked_coffeeSize
+	 * @param customer_picked_coffeeQuantity
+	 * @param custmer_picked_coffeePrice
+	 */
+	public coffee(String customer_picked_coffeeType, String customer_picked_coffeeHotorIce,
+			String customer_picked_coffeeSize, int customer_picked_coffeeQuantity, int custmer_picked_coffeePrice) {
+		super();
+		this.customer_picked_coffeeType = customer_picked_coffeeType;
+		this.customer_picked_coffeeHotorIce = customer_picked_coffeeHotorIce;
+		this.customer_picked_coffeeSize = customer_picked_coffeeSize;
+		this.customer_picked_coffeeQuantity = customer_picked_coffeeQuantity;
+		this.custmer_picked_coffeePrice = custmer_picked_coffeePrice;
 	}
 
 	public String getCustomer_picked_coffeeType() {

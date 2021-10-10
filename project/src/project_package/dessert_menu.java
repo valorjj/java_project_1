@@ -8,7 +8,7 @@ public class dessert_menu extends admin_page {
 	int dessertPrice;
 	int dessertStock;
 
-	static ArrayList<dessert> customer_coffeeArray = new ArrayList<dessert>();
+	static ArrayList<dessert> customer_dessertArray = new ArrayList<dessert>();
 
 	/**
 	 * @param dessertType
@@ -23,6 +23,16 @@ public class dessert_menu extends admin_page {
 	}
 
 	public dessert_menu() {
+	}
+
+	public void customer_deesert_order_print() {
+		for (dessert d : customer_dessertArray) {
+			System.out.println("[ 주문내역 ] ");
+			System.out.println("종류 : " + d.getCustomer_picked_dessertName());
+			System.out.println("갯수 : " + d.getCustomer_picked_dessertQuantity());
+			System.out.println();
+		}
+
 	}
 
 	public static void dessert_mainPage() {
@@ -51,22 +61,20 @@ public class dessert_menu extends admin_page {
 		dessert des;
 		// 1. 디저트를 주문받습니다.
 		adminDessertList(); // 1. 관리자가 입력해둔 디저트 리스트를 출력해서 보여줍니다.
+		System.out.println();
 		System.out.print("어떤 디저트를 주문하시겠습니까? : ");
 		String d_name = project_Main.scanner.next();
-		for (int i = 0; i < project_Main.manage_dessert_list.size(); i++) {
-			if (project_Main.manage_dessert_list.get(i)) {
-				System.out.println("몇개나 주문하시겠습니까 ? : ");
+
+		for (int i = 0; i < admin_dessertArray.size(); i++) {
+			if (admin_dessertArray.get(i).getAdmin_dessertName().equals(d_name)) {
+				System.out.print("주문 수량 : ");
 				int d_quantity = project_Main.scanner.nextInt();
-
-				des = new dessert(userSelect_dessert_name, userSelect_dessert_howmany);
-				dessertArray[i] = des;
-				customer_coffeeArray.add(des);
-
-				System.out.println();
+				int d_price = admin_dessertArray.get(i).getAdmin_dessertPrice();
+				des = new dessert(d_name, d_quantity, d_price);
+				customer_dessertArray.add(des);
 				break;
 			} else {
-				System.out.println("선택한 커피가 메뉴에 등록되어있지 않습니다. 관리자에게 문의하세요. ");
-				break;
+				System.out.println("[커피 주문] 잘못된 입력입니다 ... ");
 			}
 		}
 
@@ -94,14 +102,6 @@ public class dessert_menu extends admin_page {
 
 	public void setDessertStock(int dessertStock) {
 		this.dessertStock = dessertStock;
-	}
-
-	public static dessert[] getDessertArray() {
-		return dessertArray;
-	}
-
-	public static void setDessertArray(dessert[] dessertArray) {
-		dessert_menu.dessertArray = dessertArray;
 	}
 
 }

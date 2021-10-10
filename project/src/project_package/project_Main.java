@@ -38,6 +38,7 @@ public class project_Main {
 					if (userChoice2 == 1) {
 						// 1. 커피 주문하는 화면 출력
 						coffee_menu.coffee_mainPage();
+						
 
 					}
 
