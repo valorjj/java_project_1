@@ -56,7 +56,7 @@ public class admin_coffee extends admin_page {
 		int c_inventory = project_Main.scanner.nextInt();
 
 		admin_coffee admin = new admin_coffee(c_name, c_price, c_inventory);
-		
+
 		admin_coffeeArray.add(admin);
 
 	}
@@ -87,6 +87,7 @@ public class admin_coffee extends admin_page {
 			System.out.println("[관리자메뉴] 해당 커피가 존재하지 않습니다. ");
 		}
 	}
+
 	/**
 	 * @param admin_coffeeName
 	 * @param admin_coffeePrice
@@ -122,7 +123,5 @@ public class admin_coffee extends admin_page {
 	public void setAdmin_coffeeInventory(int admin_coffeeInventory) {
 		this.admin_coffeeInventory = admin_coffeeInventory;
 	}
-	
-	
 
 }

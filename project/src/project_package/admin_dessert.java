@@ -7,7 +7,6 @@ public class admin_dessert extends admin_page {
 	int admin_dessertInventory;
 
 	public admin_dessert() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public static void admin_dessert_page() {
