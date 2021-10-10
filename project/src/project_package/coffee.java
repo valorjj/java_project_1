@@ -10,26 +10,10 @@ public class coffee extends coffee_menu {
 	String customer_picked_coffeeHotorIce;
 	String customer_picked_coffeeSize;
 	int customer_picked_coffeeQuantity;
-
 	int custmer_picked_coffeePrice;
 
 	public coffee() {
 
-	}
-
-	/**
-	 * @param customer_picked_coffeeType
-	 * @param customer_picked_coffeeHotorIce
-	 * @param customer_picked_coffeeSize
-	 * @param customer_picked_coffeeQuantity
-	 */
-	public coffee(String customer_picked_coffeeType, String customer_picked_coffeeHotorIce,
-			String customer_picked_coffeeSize, int customer_picked_coffeeQuantity) {
-		super();
-		this.customer_picked_coffeeType = customer_picked_coffeeType;
-		this.customer_picked_coffeeHotorIce = customer_picked_coffeeHotorIce;
-		this.customer_picked_coffeeSize = customer_picked_coffeeSize;
-		this.customer_picked_coffeeQuantity = customer_picked_coffeeQuantity;
 	}
 
 	/**

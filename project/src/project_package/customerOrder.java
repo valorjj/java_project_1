@@ -14,9 +14,6 @@ public class customerOrder {
 		cm.customer_coffee_order_print();
 		System.out.println("[디저트] >>> ");
 		dessert_menu dm = new dessert_menu();
-		
-		
-		
 
 	}
 

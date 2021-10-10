@@ -12,7 +12,7 @@ public class admin_coffee extends admin_page {
 	// 1. 메뉴 출력 페이지
 
 	public static void admin_coffee_page() {
-		System.out.println(" [관리자메뉴] 커피 등록 및 수정 ");
+		System.out.println(" [관리자] 커피 등록 및 수정 ");
 		System.out.println(" ------------------------");
 		boolean flag = true;
 		while (flag) {
@@ -54,9 +54,7 @@ public class admin_coffee extends admin_page {
 		int c_price = project_Main.scanner.nextInt();
 		System.out.print("[관리자] 커피 재고 : ");
 		int c_inventory = project_Main.scanner.nextInt();
-
 		admin_coffee admin = new admin_coffee(c_name, c_price, c_inventory);
-
 		admin_coffeeArray.add(admin);
 
 	}
@@ -74,18 +72,22 @@ public class admin_coffee extends admin_page {
 	public static void admin_modify_coffee() {
 		System.out.println("[관리자] 수정할 커피 이름 : ");
 		String c_name = project_Main.scanner.next();
-		if (admin_coffeeArray.contains(c_name)) {
-			int idx = admin_coffeeArray.indexOf(c_name);
-			admin_coffeeArray.get(idx).setAdmin_coffeeName(c_name);
-			System.out.println("[관리자] 수정할 가격 : ");
-			int c_price = project_Main.scanner.nextInt();
-			System.out.println("[[관리자] 수정할 재고 : ");
-			int c_stock = project_Main.scanner.nextInt();
-			admin_coffeeArray.get(idx).setAdmin_coffeePrice(c_price);
-			admin_coffeeArray.get(idx).setAdmin_coffeeInventory(c_stock);
-		} else {
-			System.out.println("[관리자] 해당 커피가 존재하지 않습니다. ");
+		for (int i = 0; i < admin_coffeeArray.size(); i++) {
+			if (admin_coffeeArray.contains(c_name)) {
+				int idx = admin_coffeeArray.indexOf(c_name);
+				admin_coffeeArray.get(idx).setAdmin_coffeeName(c_name);
+				System.out.println("[관리자] 수정할 가격 : ");
+				int c_price = project_Main.scanner.nextInt();
+				System.out.println("[[관리자] 수정할 재고 : ");
+				int c_stock = project_Main.scanner.nextInt();
+				admin_coffeeArray.get(idx).setAdmin_coffeePrice(c_price);
+				admin_coffeeArray.get(idx).setAdmin_coffeeInventory(c_stock);
+			} else {
+				System.out.println("[관리자] 해당 커피가 존재하지 않습니다. ");
+			}
+
 		}
+
 	}
 
 	/**

@@ -11,9 +11,8 @@ public class payment extends customerOrder {
 	int dessertPayment;
 
 	public static void payment_mainpage() {
-		payment p = new payment();
-		System.out.println("총 결제하실 금액 : ");
-		int val = p.customer_payment();
+		int val = payment.customer_payment();
+		System.out.println("총 결제하실 금액 : " + val);
 		System.out.println();
 		System.out.print("결제를 진행하겠습니다. 얼마를 투입하시겠습니까? >>> ");
 		int pay = project_Main.scanner.nextInt();
@@ -34,8 +33,10 @@ public class payment extends customerOrder {
 		System.out.println("주문하신 메뉴는 다음과 같습니다. ");
 		// 1. 고객이 주문한 메뉴를 출력합니다.
 		customerOrder.order_print();
-		System.out.println("총 결제할 금액은 다음과 같습니다. " + p.getCoffeePayment() + p.getDessertPayment());
-		return p.getCoffeePayment() + p.getDessertPayment();
+		p = new payment(p.getCoffeePayment(), p.getDessertPayment());
+		int customerPayment = p.coffeePayment + p.dessertPayment;
+		System.out.println(customerPayment);
+		return customerPayment;
 	}
 
 	// 1. 고객이 지불할 커피 메뉴 항목의 금액을 산출하는 메소드입니다.
@@ -49,7 +50,7 @@ public class payment extends customerOrder {
 			int multi = var1 * var2;
 			c_money += multi;
 		}
-
+		p.setCoffeePayment(c_money);
 	}
 
 	public static void dessert_payment() {
@@ -59,7 +60,10 @@ public class payment extends customerOrder {
 		// 1. 고객이 지불할 디저트 항목 금액입니다.
 
 		for (int i = 0; i < dessert_menu.customer_dessertArray.size(); i++) {
-
+			int var1 = dessert_menu.customer_dessertArray.get(i).getCustomer_picked_dessertPrice();
+			int var2 = dessert_menu.customer_dessertArray.get(i).getCustomer_picked_dessertQuantity();
+			int multi = var1 * var2;
+			d_money += multi;
 		}
 		p.setDessertPayment(d_money);
 	}
