@@ -4,6 +4,9 @@ ezen_group_project
 - 이번 팀 프로젝트에 선언된 객체들의 관계도입니다. 
 - 카페에 있는 키오스크를 간단하게 구현해보는 것이 목표입니다.
 - 관리자 기기에 등록한 admin 항목, 고객이 주문한 데이터를 담는 customer 항목
+
+![](https://i.imgur.com/eh0Wvfp.jpg)
+
 ![](https://i.imgur.com/Rsruhy3.png)
 
 
@@ -25,3 +28,7 @@ Entities Relationship Diagram 은 `개체(자바 프로그래밍에서 객체라
 ![exmaple](https://i.imgur.com/U2sHr09.png)
 
 
+
+### 오류가 발생하는 부분
+
+admin 이 입력한 coffee_price, dessert_price 가격이 제대로 호출되지 않아서 이 부분을 해결중입니다. 
