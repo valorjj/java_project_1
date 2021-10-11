@@ -71,9 +71,9 @@ public class admin_page {
 
 				else if (adminSelect == 2) {
 					System.out.println("[관리자] 메뉴를 출력합니다. ");
-					System.out.println("-----------커피-----------");
+					System.out.println("----------- 커피 -------------");
 					adminCoffeeList(); // 1. 커피 메뉴를 출력하는 메소드 호출
-					System.out.println("-----------디저트-----------");
+					System.out.println("----------- 디저트 -----------");
 					adminDessertList(); // 2. 디저트 메뉴를 출력하는 메소드 호출
 					System.out.println();
 				} else if (adminSelect == 3) {
@@ -101,42 +101,6 @@ public class admin_page {
 			System.out.println("디저트 이름 : " + admin_dessertArray.get(i).getAdmin_dessertName());
 			System.out.println("디저트 가격 : " + admin_dessertArray.get(i).getAdmin_dessertPrice());
 			System.out.println("디저트 재고 : " + admin_dessertArray.get(i).getAdmin_dessertInventory());
-		}
-	}
-
-	// 10. 커피 메뉴를 수정하는 화면입니다.
-	public static void adminCoffeeModify() {
-		System.out.println("[관리자] 커피 메뉴 수정 : ");
-		admin_coffee coffee;
-		adminCoffeeList(); // 커피 목록을 출력하고 선택하게 합니다.
-		System.out.print("[관리자] 커피 이름 : ");
-		String c_name = project_Main.scanner.next();
-		for (int i = 0; i < admin_coffeeArray.size(); i++) {
-			if (admin_coffeeArray.get(i).getAdmin_coffeeName().equals(c_name)) {
-				System.out.print("[관리자] 수정할 가격 : ");
-				int c_price = project_Main.scanner.nextInt();
-				System.out.print("[관리자] 수정할 재고 : ");
-				int c_stock = project_Main.scanner.nextInt();
-				coffee = new admin_coffee(c_name, c_price, c_stock);
-			}
-		}
-	}
-
-	// 11. 디저트 메뉴를 수정하는 화면입니다.
-	public static void adminDessertModify() {
-		System.out.println("[관리자] 디저트 메뉴 수정 : ");
-		admin_dessert dessert;
-		adminDessertList();
-		System.out.print("[관리자] 디저트이름 : ");
-		String d_name = project_Main.scanner.next();
-		for (int i = 0; i < admin_dessertArray.size(); i++) {
-			if (admin_dessertArray.get(i).getAdmin_dessertName().equals(d_name)) {
-				System.out.print("[관리자] 수정할 가격 : ");
-				int d_price = project_Main.scanner.nextInt();
-				System.out.print("[관리자] 정할 재고 : ");
-				int d_stock = project_Main.scanner.nextInt();
-				dessert = new admin_dessert(d_name, d_price, d_stock);
-			}
 		}
 	}
 
