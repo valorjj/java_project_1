@@ -6,12 +6,8 @@ import java.util.ArrayList;
 
 public class dessert_menu extends admin_page {
 
-	
-	String customer_picked_dessertType;
 	int customer_picked_dessertPrice;
-	int customer_picked_dessertQuantity;
 	static ArrayList<dessert> customer_dessertArray = new ArrayList<dessert>();
-
 
 	public dessert_menu() {
 	}
@@ -80,27 +76,6 @@ public class dessert_menu extends admin_page {
 		}
 	}
 
-	/**
-	 * @param customer_picked_dessertType
-	 * @param customer_picked_dessertPrice
-	 * @param customer_picked_dessertQuantity
-	 */
-	public dessert_menu(String customer_picked_dessertType, int customer_picked_dessertPrice,
-			int customer_picked_dessertQuantity) {
-		super();
-		this.customer_picked_dessertType = customer_picked_dessertType;
-		this.customer_picked_dessertPrice = customer_picked_dessertPrice;
-		this.customer_picked_dessertQuantity = customer_picked_dessertQuantity;
-	}
-
-	public String getCustomer_picked_dessertType() {
-		return customer_picked_dessertType;
-	}
-
-	public void setCustomer_picked_dessertType(String customer_picked_dessertType) {
-		this.customer_picked_dessertType = customer_picked_dessertType;
-	}
-
 	public int getCustomer_picked_dessertPrice() {
 		return customer_picked_dessertPrice;
 	}
@@ -108,15 +83,5 @@ public class dessert_menu extends admin_page {
 	public void setCustomer_picked_dessertPrice(int customer_picked_dessertPrice) {
 		this.customer_picked_dessertPrice = customer_picked_dessertPrice;
 	}
-
-	public int getCustomer_picked_dessertQuantity() {
-		return customer_picked_dessertQuantity;
-	}
-
-	public void setCustomer_picked_dessertQuantity(int customer_picked_dessertQuantity) {
-		this.customer_picked_dessertQuantity = customer_picked_dessertQuantity;
-	}
-	
-	
 
 }
