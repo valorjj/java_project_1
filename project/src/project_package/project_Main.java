@@ -26,19 +26,18 @@ public class project_Main {
 		boolean flag = true;
 		while (flag) {
 
-			System.out.print("1번. 주문화면 | 2. 관리자 메뉴 | 3. 프로그램 종료 ");
+			System.out.print("1. 주문화면 | 2. 관리자 메뉴 | 3. 프로그램 종료 ");
 			int userChoice1 = scanner.nextInt();
 
 			if (userChoice1 == 1) { // 1. 주문 화면 출력
 
 				boolean flag2 = true;
 				while (flag2) {
-					System.out.print("1번. 커피 | 2번. 디저트 3번. 장바구니 >>> ");
+					System.out.print("1. 커피 | 2. 디저트 | 3. 장바구니 >>> ");
 					int userChoice2 = scanner.nextInt();
 					if (userChoice2 == 1) {
 						// 1. 커피 주문하는 화면 출력
 						coffee_menu.coffee_mainPage();
-						
 
 					}
 

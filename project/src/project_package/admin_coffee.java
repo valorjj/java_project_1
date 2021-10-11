@@ -78,10 +78,11 @@ public class admin_coffee extends admin_page {
 				admin_coffeeArray.get(idx).setAdmin_coffeeName(c_name);
 				System.out.println("[관리자] 수정할 가격 : ");
 				int c_price = project_Main.scanner.nextInt();
-				System.out.println("[[관리자] 수정할 재고 : ");
+				System.out.println("[관리자] 수정할 재고 : ");
 				int c_stock = project_Main.scanner.nextInt();
 				admin_coffeeArray.get(idx).setAdmin_coffeePrice(c_price);
 				admin_coffeeArray.get(idx).setAdmin_coffeeInventory(c_stock);
+				break;
 			} else {
 				System.out.println("[관리자] 해당 커피가 존재하지 않습니다. ");
 			}

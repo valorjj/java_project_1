@@ -12,8 +12,8 @@ public class admin_page {
 	String admin_Id = "admin";
 	String admin_password = "1234";
 
-	static ArrayList<admin_coffee> admin_coffeeArray = new ArrayList<>();
-	static ArrayList<admin_dessert> admin_dessertArray = new ArrayList<>();
+	static ArrayList<admin_coffee> admin_coffeeArray = new ArrayList<admin_coffee>();
+	static ArrayList<admin_dessert> admin_dessertArray = new ArrayList<admin_dessert>();
 
 	// 빈 생성자
 	public admin_page() {
@@ -52,11 +52,7 @@ public class admin_page {
 		 * 
 		 */
 
-		coffee_menu coffee = new coffee_menu();
-		dessert_menu dessert = new dessert_menu();
-
 		if (admin_logIn()) { // 1. 아이디 & 비밀번호가 일치해야 관리자 메뉴 실행시킵니다.
-			System.out.println("[관리자] 관리자 메뉴입니다. ");
 			System.out.println("[관리자] 메뉴를 선택하세요. ");
 			boolean run = true;
 

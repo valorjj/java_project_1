@@ -39,7 +39,7 @@ public class admin_dessert extends admin_page {
 	}
 
 	private static void admin_add_dessert() {
-		
+
 		System.out.print("[관리자] 추가할 디저트 이름 : ");
 		String d_name = project_Main.scanner.next();
 		System.out.print("[관리자] 디저트 가격 : ");
@@ -56,17 +56,21 @@ public class admin_dessert extends admin_page {
 	private static void admin_modify_dessert() {
 		System.out.print("[관리자] 수정할 디저트 이름 : ");
 		String d_name = project_Main.scanner.next();
-		if (admin_dessertArray.contains(d_name)) {
-			int idx = admin_dessertArray.indexOf(d_name);
-			admin_dessertArray.get(idx).setAdmin_dessertName(d_name);
-			System.out.print("[관리자] 수정할 가격 : ");
-			int d_price = project_Main.scanner.nextInt();
-			admin_coffeeArray.get(idx).setAdmin_coffeePrice(d_price);
-			System.out.print("[관리자] 수정할 가격 : ");
-			int d_stock = project_Main.scanner.nextInt();
-			admin_coffeeArray.get(idx).setAdmin_coffeeInventory(d_stock);
-		} else {
-			System.out.println("[관리자] 해당 디저트가 존재하지 않습니다. ");
+		for (int i = 0; i < admin_dessertArray.size(); i++) {
+			if (admin_dessertArray.contains(d_name)) {
+				int idx = admin_dessertArray.indexOf(d_name);
+				admin_dessertArray.get(idx).setAdmin_dessertName(d_name);
+				System.out.print("[관리자] 수정할 가격 : ");
+				int d_price = project_Main.scanner.nextInt();
+				admin_coffeeArray.get(idx).setAdmin_coffeePrice(d_price);
+				System.out.print("[관리자] 수정할 가격 : ");
+				int d_stock = project_Main.scanner.nextInt();
+				admin_coffeeArray.get(idx).setAdmin_coffeeInventory(d_stock);
+				break;
+			} else {
+				System.out.println("[관리자] 해당 디저트가 존재하지 않습니다. ");
+			}
+
 		}
 
 	}

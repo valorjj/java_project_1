@@ -67,9 +67,10 @@ public class dessert_menu extends admin_page {
 
 		for (int i = 0; i < admin_dessertArray.size(); i++) {
 			if (admin_dessertArray.get(i).getAdmin_dessertName().equals(d_name)) {
+				int idx = admin_dessertArray.indexOf(d_name);
 				System.out.print("[디저트 주문] 주문 수량 : ");
 				int d_quantity = project_Main.scanner.nextInt();
-				int d_price = admin_dessertArray.get(i).getAdmin_dessertPrice();
+				int d_price = admin_dessertArray.get(idx).getAdmin_dessertPrice();
 				des = new dessert(d_name, d_quantity, d_price);
 				customer_dessertArray.add(des);
 				break;
