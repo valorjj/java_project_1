@@ -6,23 +6,12 @@ import java.util.ArrayList;
 
 public class dessert_menu extends admin_page {
 
-	String dessertType;
-	int dessertPrice;
-	int dessertStock;
-
+	
+	String customer_picked_dessertType;
+	int customer_picked_dessertPrice;
+	int customer_picked_dessertQuantity;
 	static ArrayList<dessert> customer_dessertArray = new ArrayList<dessert>();
 
-	/**
-	 * @param dessertType
-	 * @param dessertPrice
-	 * @param dessertStock
-	 */
-	public dessert_menu(String dessertType, int dessertPrice, int dessertStock) {
-		super();
-		this.dessertType = dessertType;
-		this.dessertPrice = dessertPrice;
-		this.dessertStock = dessertStock;
-	}
 
 	public dessert_menu() {
 	}
@@ -74,7 +63,7 @@ public class dessert_menu extends admin_page {
 				System.out.print("[디저트 주문] 주문 수량 : ");
 				int d_quantity = project_Main.scanner.nextInt();
 				int d_inventory = admin_dessertArray.get(i).getAdmin_dessertInventory();
-				if(d_inventory < d_quantity) {
+				if (d_inventory < d_quantity) {
 					System.out.println("재고가 부족합니다. ");
 					break;
 				} else {
@@ -84,37 +73,50 @@ public class dessert_menu extends admin_page {
 					customer_dessertArray.add(des);
 					break;
 				}
-				
-				
-				
+
 			} else {
 				System.out.println("[디저트 주문] 잘못된 입력입니다. ");
 			}
 		}
 	}
 
-	public String getDessertType() {
-		return dessertType;
+	/**
+	 * @param customer_picked_dessertType
+	 * @param customer_picked_dessertPrice
+	 * @param customer_picked_dessertQuantity
+	 */
+	public dessert_menu(String customer_picked_dessertType, int customer_picked_dessertPrice,
+			int customer_picked_dessertQuantity) {
+		super();
+		this.customer_picked_dessertType = customer_picked_dessertType;
+		this.customer_picked_dessertPrice = customer_picked_dessertPrice;
+		this.customer_picked_dessertQuantity = customer_picked_dessertQuantity;
 	}
 
-	public void setDessertType(String dessertType) {
-		this.dessertType = dessertType;
+	public String getCustomer_picked_dessertType() {
+		return customer_picked_dessertType;
 	}
 
-	public int getDessertPrice() {
-		return dessertPrice;
+	public void setCustomer_picked_dessertType(String customer_picked_dessertType) {
+		this.customer_picked_dessertType = customer_picked_dessertType;
 	}
 
-	public void setDessertPrice(int dessertPrice) {
-		this.dessertPrice = dessertPrice;
+	public int getCustomer_picked_dessertPrice() {
+		return customer_picked_dessertPrice;
 	}
 
-	public int getDessertStock() {
-		return dessertStock;
+	public void setCustomer_picked_dessertPrice(int customer_picked_dessertPrice) {
+		this.customer_picked_dessertPrice = customer_picked_dessertPrice;
 	}
 
-	public void setDessertStock(int dessertStock) {
-		this.dessertStock = dessertStock;
+	public int getCustomer_picked_dessertQuantity() {
+		return customer_picked_dessertQuantity;
 	}
+
+	public void setCustomer_picked_dessertQuantity(int customer_picked_dessertQuantity) {
+		this.customer_picked_dessertQuantity = customer_picked_dessertQuantity;
+	}
+	
+	
 
 }

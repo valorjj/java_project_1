@@ -9,7 +9,6 @@ public class coffee_menu extends admin_page {
 
 	String customer_picked_coffeeType;
 	int customer_picked_coffeePrice;
-
 	int customer_picked_coffeeQuantity;
 	static ArrayList<coffee> customer_coffeeArray = new ArrayList<coffee>();
 
