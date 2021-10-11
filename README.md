@@ -29,6 +29,9 @@ Entities Relationship Diagram 은 `개체(자바 프로그래밍에서 객체라
 
 ![exmaple](https://i.imgur.com/U2sHr09.png)
 
+### Markdown 언어 작성법
+
+https://velog.io/@yuuuye/velog-%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4MarkDown-%EC%9E%91%EC%84%B1%EB%B2%95
 
 
 ### 시간을 잡아먹었던 부분
