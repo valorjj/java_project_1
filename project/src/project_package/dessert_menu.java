@@ -2,6 +2,8 @@ package project_package;
 
 import java.util.ArrayList;
 
+/* ------ 고객이 디저트를 주문하는 화면을 출력합니다. ------- */
+
 public class dessert_menu extends admin_page {
 
 	String dessertType;
@@ -25,6 +27,7 @@ public class dessert_menu extends admin_page {
 	public dessert_menu() {
 	}
 
+	// 1. [고객] 디저트 주문 내역을 출력하는 메소드
 	public void customer_deesert_order_print() {
 		for (dessert d : customer_dessertArray) {
 			System.out.println("[ 주문내역 ] ");
@@ -35,12 +38,14 @@ public class dessert_menu extends admin_page {
 
 	}
 
+	// 2. [고객] 디저트 주문의 메인 페이지
 	public static void dessert_mainPage() {
 		System.out.println("[디저트 주문] 디저트를 주문하는 화면입니다. ");
 		dessert_menu.order();
 
 	}
 
+	// 3. [고객] 디저트 주문하는 페이지
 	public static void order() {
 		customerOrder customer;
 
@@ -57,28 +62,35 @@ public class dessert_menu extends admin_page {
 		}
 	}
 
+	// 4. [고객] 디저트 주문하는 상세 페이지
 	public static void dessert_order() {
 		dessert des;
-		// 1. 디저트를 주문받습니다.
-		adminDessertList(); // 1. 관리자가 입력해둔 디저트 리스트를 출력해서 보여줍니다.
+		adminDessertList();
 		System.out.println();
 		System.out.print("[디저트 주문] 어떤 디저트를 주문하시겠습니까? : ");
 		String d_name = project_Main.scanner.next();
-
 		for (int i = 0; i < admin_dessertArray.size(); i++) {
 			if (admin_dessertArray.get(i).getAdmin_dessertName().equals(d_name)) {
-				int idx = admin_dessertArray.indexOf(d_name);
 				System.out.print("[디저트 주문] 주문 수량 : ");
 				int d_quantity = project_Main.scanner.nextInt();
-				int d_price = admin_dessertArray.get(idx).getAdmin_dessertPrice();
-				des = new dessert(d_name, d_quantity, d_price);
-				customer_dessertArray.add(des);
-				break;
+				int d_inventory = admin_dessertArray.get(i).getAdmin_dessertInventory();
+				if(d_inventory < d_quantity) {
+					System.out.println("재고가 부족합니다. ");
+					break;
+				} else {
+					int d_price = admin_dessertArray.get(i).getAdmin_dessertPrice();
+					des = new dessert(d_name, d_quantity, d_price);
+					des.setCustomer_picked_dessertPrice(d_price);
+					customer_dessertArray.add(des);
+					break;
+				}
+				
+				
+				
 			} else {
-				System.out.println("[디저트 주문] 잘못된 입력입니다 ... ");
+				System.out.println("[디저트 주문] 잘못된 입력입니다. ");
 			}
 		}
-
 	}
 
 	public String getDessertType() {

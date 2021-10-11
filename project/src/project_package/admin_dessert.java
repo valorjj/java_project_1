@@ -5,13 +5,21 @@ public class admin_dessert extends admin_page {
 	String admin_dessertName;
 	int admin_dessertPrice;
 	int admin_dessertInventory;
+	
+	/*
+	 * 관리자가 디저트 메뉴를 등록하는 클래스입니다. 
+	 * 
+	 */
 
 	public admin_dessert() {
 	}
 
+	
+
+	// 1. [관리자] 반복문을 돌면서 등록 / 수정 / 삭제 등의 행동 여부를 묻습니다. 
 	public static void admin_dessert_page() {
-		System.out.println("[관리자] 디저트 등록 및 수정 ");
-		System.out.println(" ------------------------ ");
+		System.out.println("[관리자] 디저트 등록 및 수정  ");
+		System.out.println(" ---------------------  ");
 		boolean flag = true;
 		while (flag) {
 			System.out.print("1. 등록 | 2. 수정 | 3. 삭제 | 4. 종료 : ");
@@ -27,17 +35,17 @@ public class admin_dessert extends admin_page {
 				admin_delete_dessert();
 				break;
 			case 4:
-				System.out.println("이전 페이지로 이동 ... ");
+				System.out.println("이전 페이지로 이동 ");
 				flag = false;
 				break;
 			default:
-				System.out.println("잘못된 경로 입니다 ... ");
+				System.out.println("잘못된 경로 입니다 ");
 			}
 
 		}
 
 	}
-
+	// 2.[관리자] 새로운 디저트 메뉴를 추가하는 메소드입니다. 
 	private static void admin_add_dessert() {
 
 		System.out.print("[관리자] 추가할 디저트 이름 : ");
@@ -52,13 +60,14 @@ public class admin_dessert extends admin_page {
 		admin_dessertArray.add(admin);
 
 	}
-
+	
+	// 3. [관리자] 기존의 디저트 메뉴를 수정하는 메소드입니다. 
 	private static void admin_modify_dessert() {
 		System.out.print("[관리자] 수정할 디저트 이름 : ");
 		String d_name = project_Main.scanner.next();
 		for (int i = 0; i < admin_dessertArray.size(); i++) {
 			if (admin_dessertArray.contains(d_name)) {
-				int idx = admin_dessertArray.indexOf(d_name);
+				int idx = i;
 				admin_dessertArray.get(idx).setAdmin_dessertName(d_name);
 				System.out.print("[관리자] 수정할 가격 : ");
 				int d_price = project_Main.scanner.nextInt();
@@ -74,14 +83,18 @@ public class admin_dessert extends admin_page {
 		}
 
 	}
-
+	
+	// 4. [관리자] 기존의 메뉴를 삭제하는 메소드입니다. 
 	private static void admin_delete_dessert() {
-		System.out.println("[관리자] 삭제할 디저트 이름 : ");
+		System.out.print("[관리자] 삭제할 디저트 이름 : ");
 		String d_name = project_Main.scanner.next();
-		if (admin_dessertArray.contains(d_name)) {
-			admin_dessertArray.remove(admin_dessertArray.indexOf(d_name));
-		}
 
+		for (int i = 0; i < admin_dessertArray.size(); i++) {
+			if (admin_dessertArray.get(i).getAdmin_dessertName().equals(d_name)) {
+				admin_dessertArray.remove(i);
+				break;
+			}
+		}
 	}
 
 	/**

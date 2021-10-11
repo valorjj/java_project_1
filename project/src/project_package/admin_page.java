@@ -45,13 +45,6 @@ public class admin_page {
 	// 2. 관리자 메인 화면 출력하는 메소드입니다.
 	public static void adminMenu() {
 
-		/*
-		 * 이미 선언된 메소드들을 호출해서 사용합니다. 프로그램이 최종적으로 동작할 main method 에 선언한 커피, 디저트 리스트를 호출해서
-		 * 사용합니다.
-		 * 
-		 * 
-		 */
-
 		if (admin_logIn()) { // 1. 아이디 & 비밀번호가 일치해야 관리자 메뉴 실행시킵니다.
 			System.out.println("[관리자] 메뉴를 선택하세요. ");
 			boolean run = true;
@@ -114,7 +107,7 @@ public class admin_page {
 	// 10. 커피 메뉴를 수정하는 화면입니다.
 	public static void adminCoffeeModify() {
 		System.out.println("[관리자] 커피 메뉴 수정 : ");
-		coffee_menu coffee;
+		admin_coffee coffee;
 		adminCoffeeList(); // 커피 목록을 출력하고 선택하게 합니다.
 		System.out.print("[관리자] 커피 이름 : ");
 		String c_name = project_Main.scanner.next();
@@ -124,7 +117,7 @@ public class admin_page {
 				int c_price = project_Main.scanner.nextInt();
 				System.out.print("[관리자] 수정할 재고 : ");
 				int c_stock = project_Main.scanner.nextInt();
-				coffee = new coffee_menu(c_name, c_price, c_stock);
+				coffee = new admin_coffee(c_name, c_price, c_stock);
 			}
 		}
 	}
@@ -132,7 +125,7 @@ public class admin_page {
 	// 11. 디저트 메뉴를 수정하는 화면입니다.
 	public static void adminDessertModify() {
 		System.out.println("[관리자] 디저트 메뉴 수정 : ");
-		dessert_menu dessert;
+		admin_dessert dessert;
 		adminDessertList();
 		System.out.print("[관리자] 디저트이름 : ");
 		String d_name = project_Main.scanner.next();
@@ -142,7 +135,7 @@ public class admin_page {
 				int d_price = project_Main.scanner.nextInt();
 				System.out.print("[관리자] 정할 재고 : ");
 				int d_stock = project_Main.scanner.nextInt();
-				dessert = new dessert_menu(d_name, d_price, d_stock);
+				dessert = new admin_dessert(d_name, d_price, d_stock);
 			}
 		}
 	}

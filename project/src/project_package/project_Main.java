@@ -5,22 +5,9 @@ import java.util.Scanner;
 
 public class project_Main {
 
-	/*
-	 * 관리자 등록하는 메뉴 고객이 주문하는 목록
-	 * 
-	 * 
-	 */
-
 	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
-
-		// 1. 해당 클래스의 메소드를 전부 static 영역으로 지정해뒀기 때문에
-		// 새로운 생성자를 만들 필요가 없습니다.
-
-//		admin_page adminPage = new admin_page();
-//		coffee_menu coffeeMenu = new coffee_menu();
-//		dessert_menu dessertMenu = new dessert_menu();
 
 		System.out.println("메인 실행 화면입니다. ");
 		boolean flag = true;
@@ -53,6 +40,8 @@ public class project_Main {
 						customerOrder.order_print();
 						System.out.println("결제를 진행합니다. ");
 						payment.payment_mainpage();
+						flag2 = false;
+
 					}
 
 					else {
