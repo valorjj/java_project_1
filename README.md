@@ -9,6 +9,8 @@ ezen_group_project
 
 ![](https://i.imgur.com/Rsruhy3.png)
 
+![](https://i.imgur.com/3ChaSfs.png)
+
 
 ### dbdiagram.io 소개
 > https://velog.io/@wildmental/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EA%B7%80%EC%B0%AE%EC%9D%80-ERD-DBdiagram.io%EB%A1%9C-5%EB%B6%84%EB%A7%8C%EC%97%90-%EC%99%84%EC%84%B1%ED%95%98%EA%B8%B0
