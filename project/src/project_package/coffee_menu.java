@@ -83,7 +83,6 @@ public class coffee_menu extends admin_page {
 					break;
 				} else {
 					int c_price = admin_coffeeArray.get(i).getAdmin_coffeePrice();
-					System.out.println("c_price " + c_price);
 					cof = new coffee(c_name, c_tempt, c_size, c_quantity, c_price);
 					cof.setCustomer_picked_coffeePrice(c_price);
 

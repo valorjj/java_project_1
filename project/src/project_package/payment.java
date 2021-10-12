@@ -3,7 +3,7 @@ package project_package;
 public class payment extends customerOrder {
 
 	/*
-	 * 고객이 결제하는 페이지입니다. 
+	 * 고객이 결제하는 페이지입니다.
 	 * 
 	 */
 
@@ -55,7 +55,8 @@ public class payment extends customerOrder {
 		}
 		return c_money;
 	}
-	// [주문] 고객이 지불할 디저트 메뉴 항목의 금액을 산출하는 메소드입니다. 
+
+	// [주문] 고객이 지불할 디저트 메뉴 항목의 금액을 산출하는 메소드입니다.
 	public static int dessert_payment() {
 		int d_money = 0;
 		// 1. 고객이 지불할 디저트 항목 금액입니다.
@@ -69,25 +70,33 @@ public class payment extends customerOrder {
 		return d_money;
 	}
 
-	// [주문] 결제 완료 후, 재고를 감소시키는 메소드입니다. 
+	// [주문] 결제 완료 후, 재고를 감소시키는 메소드입니다.
 	public static void inventory_refresh() {
 
 		for (int i = 0; i < coffee_menu.customer_coffeeArray.size(); i++) {
-			if (admin_page.admin_coffeeArray.get(i).getAdmin_coffeeName()
-					.equals(coffee_menu.customer_coffeeArray.get(i).getCustomer_picked_coffeeType())) {
-				int c_inventory_minus = coffee_menu.customer_coffeeArray.get(i).getCustomer_picked_coffeeQuantity();
-				admin_page.admin_coffeeArray.get(i).setAdmin_coffeeInventory(
-						admin_page.admin_coffeeArray.get(i).getAdmin_coffeeInventory() - c_inventory_minus);
+			for (int k = 0; k < admin_page.admin_coffeeArray.size(); k++) {
+				if (admin_page.admin_coffeeArray.get(k).getAdmin_coffeeName()
+						.equals(coffee_menu.customer_coffeeArray.get(i).getCustomer_picked_coffeeType())) {
+					int c_inventory_minus = coffee_menu.customer_coffeeArray.get(i).getCustomer_picked_coffeeQuantity();
+					admin_page.admin_coffeeArray.get(i).setAdmin_coffeeInventory(
+							admin_page.admin_coffeeArray.get(i).getAdmin_coffeeInventory() - c_inventory_minus);
+				}
 			}
+
 		}
 
 		for (int j = 0; j < dessert_menu.customer_dessertArray.size(); j++) {
-			if (admin_page.admin_coffeeArray.get(j).getAdmin_coffeeName()
-					.equals(dessert_menu.customer_dessertArray.get(j).getCustomer_picked_dessertName())) {
-				int d_inventory_minus = dessert_menu.customer_dessertArray.get(j).getCustomer_picked_dessertQuantity();
-				admin_page.admin_coffeeArray.get(j).setAdmin_coffeeInventory(
-						admin_page.admin_coffeeArray.get(j).getAdmin_coffeeInventory() - d_inventory_minus);
+			for (int w = 0; w < admin_page.admin_dessertArray.size(); w++) {
+				if (admin_page.admin_dessertArray.get(w).getAdmin_dessertName()
+						.equals(dessert_menu.customer_dessertArray.get(j).getCustomer_picked_dessertName())) {
+					int d_inventory_minus = dessert_menu.customer_dessertArray.get(j)
+							.getCustomer_picked_dessertQuantity();
+					admin_page.admin_dessertArray.get(j).setAdmin_dessertInventory(
+							admin_page.admin_dessertArray.get(j).getAdmin_dessertInventory() - d_inventory_minus);
+				}
+
 			}
+
 		}
 	}
 
