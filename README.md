@@ -218,3 +218,50 @@ public class Example {
   }
 }
 ```
+
+data 값은 10 이 아니라 0 이 출력됩니다. 분명 initClass 는 return 값이 없지만, heap 영역에서의 주소값을 타고 들어가서 stack 영역에 있는 데이터 값을 수정했습니다. 
+
+즉 return 값이 없더라도 메소드안에 메모리 주소값을 타고 들어가서 데이터를 수정한다면 값이 분명 바뀔 수 있습니다. 결론적으로 다음의 코드를 이해한다면 이해했다고 볼 수 있습니다.
+
+```java
+// 클래스
+public class Example {
+  // 변수
+  private int data;
+  // 생성자
+  public Example(int data) {
+    // 변수 값 설정
+    this.data = data;
+  }
+  // 더하기 함수
+  public Example sum(int data) {
+    // 변수에 값을 가산
+    this.data += data;
+    // 콘솔 출력
+    return print();
+  }
+  // 출력 함수
+  public Example print() {
+    // 콘솔 출력
+    System.out.println("data - " + this.data);
+    // 자기 자신 클래스를 리턴
+    return this;
+  }
+ 
+  // 실행 함수
+  public static void main(String... args) {
+    // Example 클래스 선언
+    Example ex = new Example(1);
+    // sum 함수에는 print를 호출하는데. print함수는 자기 자신의 참조 값을 리턴한다.
+    // 즉 ex.sum(2), ex.sum(3)과 같은 효과의 chain 메소드 패턴이 구현된다.
+    ex.sum(2).sum(3).sum(4).sum(5).sum(6).sum(7).sum(8).sum(9).sum(10);
+    // 콘솔 출력
+    System.out.println("ex data return");
+    // 결과 출력
+    ex.print();
+  }
+}
+```
+
+
+
