@@ -78,8 +78,8 @@ public class payment extends customerOrder {
 				if (admin_page.admin_coffeeArray.get(k).getAdmin_coffeeName()
 						.equals(coffee_menu.customer_coffeeArray.get(i).getCustomer_picked_coffeeType())) {
 					int c_inventory_minus = coffee_menu.customer_coffeeArray.get(i).getCustomer_picked_coffeeQuantity();
-					admin_page.admin_coffeeArray.get(i).setAdmin_coffeeInventory(
-							admin_page.admin_coffeeArray.get(i).getAdmin_coffeeInventory() - c_inventory_minus);
+					admin_page.admin_coffeeArray.get(k).setAdmin_coffeeInventory(
+							admin_page.admin_coffeeArray.get(k).getAdmin_coffeeInventory() - c_inventory_minus);
 				}
 			}
 
@@ -91,8 +91,8 @@ public class payment extends customerOrder {
 						.equals(dessert_menu.customer_dessertArray.get(j).getCustomer_picked_dessertName())) {
 					int d_inventory_minus = dessert_menu.customer_dessertArray.get(j)
 							.getCustomer_picked_dessertQuantity();
-					admin_page.admin_dessertArray.get(j).setAdmin_dessertInventory(
-							admin_page.admin_dessertArray.get(j).getAdmin_dessertInventory() - d_inventory_minus);
+					admin_page.admin_dessertArray.get(w).setAdmin_dessertInventory(
+							admin_page.admin_dessertArray.get(w).getAdmin_dessertInventory() - d_inventory_minus);
 				}
 
 			}
