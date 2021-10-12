@@ -114,9 +114,107 @@ class 를 이용해서 클래스, 메소드들을 잘게 쪼개서 코드를 작
 
 ---
 
+### 자바 메모리 구조에 관한 상세한 설명
+
+(https://codevang.tistory.com/83?category=827598) <br>
+
+---
+
 ### 자바는 왜 Stack / Heap 메모리 영역을 나눠서 취급하는 걸까? 그리고 heap 영역에 있는 값을 무슨 수로 읽어오는 걸까?
+
+Stack 은 정적인 메모리 영역이고, 데이터를 찾기가 쉽다 (push / pop)
+Heap 영역은 동적인 메모리 영역이고, new 키워드로 클래스를 할당하면 데이터를 주소값으로만 찾을 수 있다.
+
+
 > stakc/heap 구분은 C/C++ 에서 온 개념이다. 
 
+stack 의 메모리는 정해져있다. 보통 1MB~2MB
+1MB 면 int 가 4byte 니까 25만개. stack 메모리는 변수 뿐 아니라 함수 상태(Interrupt) 등 다양한 데이터가 존재한다. 
+
+아니 그럼 stack 메모리를 높이면 되는거 아니냐? stack 메모리는 push / pop 으로 데이터를 찾는데 메모리가 커지면 느려진다. 
+
+Heap 은 stack 처럼 정형화 된 자료 구조가 아니기 때문에 용량이 크다. 이를 참조하기 위해서는 반드시 메모리 주소 값이 있어야 하는데, 이 메모리 주소 값을 Stack 영역에 보관한다. Java 에서는 이 주소 값을 확인할 수 있는 메소드가 `hashCode()`
+
+Java 에서는 모든 클래스가 일단 `Object class` 를 자동으로 상속받게 되어있다. `Object` 함수에는 9개의 함수가 기본적으로 선언되어 있다. (원시데이터를 제외한 모든 데이터가 이 9가지 함수를 가지고 있다)
 
 
 
+|메소드|설명|
+|----|----|
+|proected Object clone() | 객체를 복사한다 (다른 클래스이다 ! 단순 포인터 복사가 아님) |
+|boolean equals(Object obj) | 해당 객체가 동일하면 true, 다르면 false|
+|protected void finalize() | 소멸자와 비슷함. 가비지 컬렉션에서 더이상 참조 없음을 확인할 때 호출된다.|
+|int hashCode() | 객체의 해시 코드를 반환한다.|
+|String toString() | 객체의 문자열을 반환한다.|
+|Class getClass() | 객체이 클래스 타입을 반환한다.|
+|void notify() | 모니터에서 대기중인 단일 스레드를 재개한다.|
+|void notifyAll() | 모니터에서 대기중인 모든 스레드를 재개한다.|
+|void wait() | notify, notifyAll 이 호출될 때까지 스레드 대기|
+|void wait(long timeout) | notify, notifyAll 이 호출되거나 지정된 시간까지 대기|
+|void wait(long timeout, int nanos) | notify, notifyAll 이 호출되거나 다른 스레드가 인터럽트하거나 지정된 시간까지 스레스 대기| 
+
+---
+
+hashCode 는 클래스의 주소값을 해시 알고리즘으로 나타난 것이다. `해시 알고리즘은 일련의 데이터를 구분하기 위해서 짧게 압축해서 나타낸 것`
+
+```
+Example ex1 = new Example(10);
+// ex1 변수를 ex2로 넣는다.
+Example ex2 = ex1;
+// hashcode 출력
+System.out.println("ex1 hashcode = " + ex1.hashCode());
+System.out.println("ex2 hashcode = " + ex2.hashCode());
+// ex2의 클래스의 data를 수정하면
+ex2.setData(20);
+// ex1의 data 콘솔 출력
+System.out.println("ex1 data");
+ex1.print();
+// ex2의 data 콘솔 출력
+System.out.println("ex2 data");
+ex2.print();
+```
+
+![해시예제1](https://i.imgur.com/XnFveST.png)
+<br>
+![해시예제2](https://i.imgur.com/tmwESlM.png)
+
+
+- 여기서 놓치기 쉬운 함정 한번 보고 지나가겠습니다.
+
+![]("https://gist.github.com/valorjj/76eb79c1da8f4819831d4c76db90f66a.js")
+<br>
+
+```java
+// 클래스
+public class Example {
+  // 변수
+  private int data;
+  // 생성자
+  public Example(int data) {
+    setData(data);
+  }
+  // 변수 설정
+  public void setData(int data) {
+    this.data = data;
+  }
+  // 출력 함수
+  public void print() {
+    // 콘솔 출력
+    System.out.println("data - " + this.data);
+  }
+  // 클래스를 초기화하는 함수
+  public static void initClass(Example ex) {
+    // 값을 초기화
+    ex.setData(0);
+  }
+  // 실행 함수
+  public static void main(String... args) {
+    // Example 클래스 선언
+    Example ex1 = new Example(10);
+    // ex1의 값을 초기화
+    initClass(ex1);
+    // ex1의 값을 출력
+    ex1.print();
+  }
+}
+```
