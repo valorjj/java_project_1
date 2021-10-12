@@ -106,3 +106,5 @@ class 를 이용해서 클래스, 메소드들을 잘게 쪼개서 코드를 작
 클래스로부터 객체를 만드는 과정을 클래스의 인스턴스화(instantiate)라고 한다.
 
 어떤 클래스로부터 만들어진 객체를 그 클래스의 인스턴스(instance)라고 한다.
+
+출처 : https://whatisthenext.tistory.com/36
