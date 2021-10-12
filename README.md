@@ -1,5 +1,7 @@
 # java_groupProject
-ezen_group_project
+ezen_group_project 
+
+😄
 
 - 이번 팀 프로젝트에 선언된 객체들의 관계도입니다. 
 - 카페에 있는 키오스크를 간단하게 구현해보는 것이 목표입니다.
