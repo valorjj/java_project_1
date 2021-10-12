@@ -65,4 +65,8 @@ class 를 이용해서 클래스, 메소드들을 잘게 쪼개서 코드를 작
 
 (https://vaert.tistory.com/101)
 
+> stack 과 heap 메모리 
+
+(https://nowonbun.tistory.com/303)
+
 
