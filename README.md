@@ -53,4 +53,15 @@ class 를 이용해서 클래스, 메소드들을 잘게 쪼개서 코드를 작
 3. 캡슐화를 통해 필드의 직접 노출을 막는 객체지향 방식의 이념에서 벗어남
 4. 프로그램 종료시까지 메모리를 점유하고 있어 메모리 낭비 발생 가능
 
+### 읽어보면 좋을 자료 
+
+자바가 C보다 상대적으로 느린 이유 - 메모리 구조에 관한 이해 
+(https://codevang.tistory.com/83?category=827598)
+
+(https://codevang.tistory.com/84)
+
+자바 static 에 관한 이해 
+
+(https://vaert.tistory.com/101)
+
 
