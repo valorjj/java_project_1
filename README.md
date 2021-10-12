@@ -7,7 +7,7 @@ ezen_group_project
 
 ![](https://i.imgur.com/eh0Wvfp.jpg)
 
-![](https://i.imgur.com/Rsruhy3.png)
+![](https://i.imgur.com/farfkQ1.png)
 
 ![](https://i.imgur.com/3ChaSfs.png)
 
